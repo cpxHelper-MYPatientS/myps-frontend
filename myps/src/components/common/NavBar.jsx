@@ -14,9 +14,9 @@ const NavBar = () => {
       <img src={Logo} />
       <div className="flex gap-5">
         {categories.map((category, index) => (
-          <div className="flex items-center gap-1">
-            <img key={index} src={category.img} />
-            <div key={index}>{category.text}</div>
+          <div key={index} className="flex items-center gap-1">
+            <img src={category.img} />
+            <div>{category.text}</div>
           </div>
         ))}
       </div>
