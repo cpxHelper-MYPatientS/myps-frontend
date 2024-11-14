@@ -12,8 +12,8 @@ const MainPage = () => {
     return(
     <div className="flex flex-col pb-10 gap-[4.5625rem]">
     <NavBar />
-    <div className="mx-[360px]">
-        <div className="flex flex-col gap-[98px]">
+    <div className="mx-[22.5rem]">
+        <div className="flex flex-col gap-[6.125rem]">
             <div className="flex flex-col gap-5">
                 <div className="flex justify-between items-end ">
                     <div className="flex flex-col">

@@ -5,6 +5,7 @@ import checkNo from "../../assets/mainPage/check-none.svg";
 import Subject from "./Subject";
 import PatientInfo from "./PatientInfo";
 import Pagination from "./Pagination";
+
 const CustomCase = () => {
   const tabs = ["최신 순", "오래된 순"];
   const [activeTab, setActiveTab] = useState("최신 순");
@@ -59,6 +60,11 @@ const CustomCase = () => {
             />
           ))}
         </div>
+        {/* <div className="flex justify-center items-center p-2.5 bg-background text-p2 text-cgray-700 font-medium w-[70.0625rem] h-[5.3125rem] rounded-[0.625rem]">
+          직접 만든 CASE가 아직 없습니다.
+          <br />
+          나만의 CASE를 만들어 저장해보세요!
+        </div> */}
         <div className="flex flex-col w-full">
           <PatientInfo isTop={true} />
           <PatientInfo />
