@@ -1,8 +1,12 @@
 import uploadIcon from "../../assets/mainPage/upload.svg";
 import Subject from "./Subject";
-const PatientInfo = (isTop = false) => {
+const PatientInfo = ({ isTop = false }) => {
   return (
-    <div className="flex justify-between items-center px-4 w-full h-[2.8125rem] border-t border-t-cgray-200">
+    <div
+      className={`flex justify-between items-center px-4 w-full h-[2.8125rem] ${
+        isTop ? "" : "border-t border-t-cgray-200"
+      }`}
+    >
       <div className="flex items-center gap-3">
         <Subject subject="순환기" />
         <div className="flex items-center gap-2 text-p1 font-semibold text-cgray-950 ">
