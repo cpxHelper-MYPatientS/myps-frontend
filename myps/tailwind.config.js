@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html","./src/**/*.{html,js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -8,28 +8,37 @@ export default {
         b: "#191919",
         violet: {
           10: "#EAEFF8",
-          50:"#ECF0FF",
-          500:"#5750FF",
+          25: "#E9E6FF",
+          50: "#ECF0FF",
+          500: "#5750FF",
           600: "#5039FA",
           700: "#3F25DD",
         },
         cgray: {
+          50: "#F6F7F8",
           100: "#EAEDEF",
           200: "#D9E0E4",
+          300: "#BFCAD1",
           400: "#AFBCC5",
           700: "#6B778A",
           900: "#4B535D",
           950: "#30353B",
-        }
+        },
+        blue: {
+          10: "#E2F6FF",
+          50: "#EFF5FF",
+          600: "#3C88B7",
+        },
       },
       fontSize: {
         p1: ["1rem", { lineHeight: "1.5rem" }], //16px / 24px
-        p2: ["0.875rem", { lineHeight: "1.3125rem" }], //14px/21px
+        p2: ["0.875rem", { lineHeight: "1.3125rem" }], //14px/ 21px
         p3: ["0.75rem", { lineHeight: "1.125rem" }], //12px / 18px
         b1: ["1.25rem", { lineHeight: "30px" }], //20px / 30px
         b2: ["1.125rem", { lineHeight: "1.6875rem" }], //18px / 27px
         t1: ["1.5rem", { lineHeight: "2.25rem" }], //24px / 36px
         h1: ["2rem", { lineHeight: "3rem" }], //32px / 48px
+        h2: ["1.625rem", { lineHeight: "2.4375rem" }], //26px / 39px
       },
       fontWeight: {
         bold: 700,
@@ -39,9 +48,22 @@ export default {
       boxShadow: {
         custom1: "0px 4px 4px 0px #EFF4FD",
         custom2: "0px 2px 10px rgba(214, 216, 219, 0.25)",
-      }
+      },
+      animation: {
+        "slide-down": "slideDown 0.5s ease-in-out", // slideDown 애니메이션을 0.5초로 설정
+        "slide-up": "slideUp 0.5s ease-in-out", // slideUp 애니메이션을 0.5초로 설정
+      },
+      keyframes: {
+        slideDown: {
+          "0%": { height: "0px" },
+          "100%": { height: "787px" },
+        },
+        slideUp: {
+          "0%": { height: "787px" },
+          "100%": { height: "0px" },
+        },
+      },
     },
   },
   plugins: [],
-}
-
+};
