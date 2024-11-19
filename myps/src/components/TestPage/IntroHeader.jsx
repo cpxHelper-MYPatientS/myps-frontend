@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import undoIcon from "../../assets/testPage/undo.svg";
 
-const IntroHeader = ({ title }) => {
+const IntroHeader = ({ title, imgSrc }) => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -9,7 +9,10 @@ const IntroHeader = ({ title }) => {
   };
   return (
     <div className="flex justify-between items-end text-h1 font-bold">
-      {title}
+      <div className="flex items-center gap-2">
+        {imgSrc && <img className="w-10 h-10" src={imgSrc} />}
+        {title}
+      </div>
       <div
         className="flex items-center gap-1 text-p1 text-cgray-900 font-medium cursor-pointer"
         onClick={handleBackClick}
