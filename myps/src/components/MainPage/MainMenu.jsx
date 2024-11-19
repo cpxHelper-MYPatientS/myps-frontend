@@ -15,7 +15,7 @@ const MainMenu = ({ title, iconSrc, isSub = false, onClick }) => {
         <img src={iconSrc} />
       </div>
       <div className="flex flex-col gap-2 font-medium text-cgray-900">
-        {isSub ? "기본 진찰 사항" : ""}
+        {isSub ? "문진 항목" : ""}
         <div className="flex justify-between items-center text-b text-t1 font-bold ">
           {title}
           <img className="w-8 h-8" src={arrowIcon} />
