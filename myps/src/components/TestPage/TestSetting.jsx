@@ -1,7 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import userVideo from "../../assets/testPage/user-image.png";
 import token from "../../assets/common/token.svg";
 import MicSetting from "./MicSetting";
 const TestSetting = () => {
+  const navigate = useNavigate();
+
+  const handleTestClick = () => {
+    navigate(`/test/intro`);
+  };
   return (
     <div className="flex flex-col justify-center items-center px-11 py-4 gap-9 bg-white shadow-custom2 w-[75rem] h-[46.625rem] rounded-bb">
       <div className="py-2 text-t1 font-bold h-13">
@@ -34,7 +40,10 @@ const TestSetting = () => {
               </div>
             </div>
           </div>
-          <button className="flex flex-col justify-center items-center gap-2 p-8 text-white bg-violet-600 rounded-bb">
+          <button
+            className="flex flex-col justify-center items-center gap-2 p-8 text-white bg-violet-600 rounded-bb"
+            onClick={handleTestClick}
+          >
             <div className="text-p1">준비가 완료되면 버튼을 눌러주세요!</div>
             <div className="text-h1 font-bold">시험 시작하기</div>
           </button>

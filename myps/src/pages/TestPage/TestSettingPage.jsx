@@ -1,5 +1,5 @@
 import NavBar from "../../components/common/NavBar";
-import IntroHeader from "../../components/TestPage/InroHeader";
+import IntroHeader from "../../components/TestPage/IntroHeader";
 import TestSetting from "../../components/TestPage/TestSetting";
 const TestSettingPage = () => {
   return (
