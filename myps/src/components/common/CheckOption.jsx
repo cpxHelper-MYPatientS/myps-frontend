@@ -26,9 +26,6 @@ const CheckOption = ({ options = [], isMultiple = false }) => {
       setSelectedIndexes([index]);
     }
   };
-  //   const handleClick = () => {
-  //     setIsChecked((prev) => !prev);
-  //   };
   return (
     <div className="flex items-center gap-3 text-p1 font-medium">
       {options.map((option, index) => (
@@ -38,7 +35,7 @@ const CheckOption = ({ options = [], isMultiple = false }) => {
           onClick={() => handleClick(index)}
         >
           <img
-            className="w-[1.375rem] h-[1.375rem  cursor-pointer"
+            className="w-[1.375rem] h-[1.375rem] cursor-pointer"
             src={selectedIndexes.includes(index) ? checkYes : checkNo}
             alt={`check-${index}`}
           />

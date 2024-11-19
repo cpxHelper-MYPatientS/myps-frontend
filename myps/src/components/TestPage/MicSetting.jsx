@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import clock from "../../assets/testPage/clock.svg";
 import minus from "../../assets/testPage/minus.svg";
 import plus from "../../assets/testPage/plus.svg";
@@ -24,7 +23,7 @@ const MicSetting = () => {
     <div className="flex flex-col items-start gap-5">
       {/* 시험시간  */}
       <div className="flex ">
-        <div className="flex gap-2 font-medium w-[148px]">
+        <div className="flex gap-2 font-medium w-[9.25rem]">
           <img src={clock} className="w-6 h-6" /> 시험시간
         </div>
         <div className="flex items-center">
@@ -47,7 +46,7 @@ const MicSetting = () => {
       </div>
       {/* 마이크  */}
       <div className="flex ">
-        <div className="flex gap-2 font-medium w-[148px]">
+        <div className="flex gap-2 font-medium w-[9.25rem]">
           <img src={mic} className="w-6 h-6" /> 마이크
         </div>
         <div className="flex gap-8">
@@ -58,14 +57,14 @@ const MicSetting = () => {
         </div>
       </div>
       {/* 오디오 비주얼라이저 */}
-      <div className="w-[148px]">
-        <div className="flex justify-center items-center px-1 py-2 bg-violet-25 text-p1 text-violet-900 self-center w-[120px] h-8 rounded-a">
+      <div className="w-[9.25rem]">
+        <div className="flex justify-center items-center px-1 py-2 bg-violet-25 text-p1 text-violet-900 self-center w-[7.5rem] h-8 rounded-a">
           마이크 테스트
         </div>
       </div>
       {/* 셀프캠  */}
       <div className="flex">
-        <div className="flex gap-2 font-medium w-[148px]">
+        <div className="flex gap-2 font-medium w-[9.25rem]">
           <img src={camera} className="w-6 h-6" /> 셀프캠
         </div>
         <div className="flex gap-8">

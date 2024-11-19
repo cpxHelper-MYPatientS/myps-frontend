@@ -34,7 +34,7 @@ const TestSetting = () => {
               </div>
             </div>
           </div>
-          <button className="flex flex-col justify-center items-center gap-2 p-8 text-white bg-violet-600 h-[144px] rounded-[10px]">
+          <button className="flex flex-col justify-center items-center gap-2 p-8 text-white bg-violet-600 h-[9rem] rounded-b">
             <div className="text-p1">준비가 완료되면 버튼을 눌러주세요!</div>
             <div className="text-h1 font-bold">시험 시작하기</div>
           </button>
