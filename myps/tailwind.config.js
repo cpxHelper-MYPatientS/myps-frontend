@@ -30,6 +30,9 @@ export default {
           600: "#3C88B7",
         },
       },
+      backgroundImage: {
+        gradientViolet: "linear-gradient(90deg, #7176FF 0%, #5039FA 100%)", // bg-gradientViolet으로 사용
+      },
       fontSize: {
         p1: ["1rem", { lineHeight: "1.5rem" }], //16px / 24px
         p2: ["0.875rem", { lineHeight: "1.3125rem" }], //14px/ 21px
@@ -48,6 +51,7 @@ export default {
       boxShadow: {
         custom1: "0px 4px 4px 0px #EFF4FD",
         custom2: "0px 2px 10px rgba(214, 216, 219, 0.25)",
+        custom3: "0px 4px 10px 0px rgba(113, 118, 255, 0.15)",
       },
       animation: {
         "slide-down": "slideDown 0.5s ease-in-out", // slideDown 애니메이션을 0.5초로 설정
