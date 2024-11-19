@@ -7,6 +7,7 @@ export default {
         background: "#F9FBFF",
         b: "#191919",
         button: "#5338FF",
+        border: "#EDEFF3",
         violet: {
           10: "#EAEFF8",
           25: "#E9E6FF",
@@ -54,6 +55,10 @@ export default {
         custom1: "0px 4px 4px 0px #EFF4FD",
         custom2: "0px 2px 10px rgba(214, 216, 219, 0.25)",
         custom3: "0px 4px 10px 0px rgba(113, 118, 255, 0.15)",
+      },
+      borderRadius: {
+        a: "0.3125rem",
+        b: "0.625rem",
       },
       animation: {
         "slide-down": "slideDown 0.5s ease-in-out", // slideDown 애니메이션을 0.5초로 설정
