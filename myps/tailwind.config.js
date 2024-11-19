@@ -6,6 +6,7 @@ export default {
       colors: {
         background: "#F9FBFF",
         b: "#191919",
+        button: "#5338FF",
         violet: {
           10: "#EAEFF8",
           25: "#E9E6FF",
@@ -42,6 +43,7 @@ export default {
         t1: ["1.5rem", { lineHeight: "2.25rem" }], //24px / 36px
         h1: ["2rem", { lineHeight: "3rem" }], //32px / 48px
         h2: ["1.625rem", { lineHeight: "2.4375rem" }], //26px / 39px
+        m1: ["1.25rem", { lineHeight: "2.125rem" }], //20px / 34px
       },
       fontWeight: {
         bold: 700,
