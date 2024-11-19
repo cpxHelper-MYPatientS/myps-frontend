@@ -15,11 +15,15 @@ const DefaultModal = ({
       onClick={onCloseClick} // 배경 클릭 시 모달을 닫음
     >
       <div
-        className="flex flex-col px-6 pt-6 pb-12 gap-5 bg-white w-[564px] rounded-[10px]"
+        className="flex flex-col px-6 pt-6 pb-12 gap-5 bg-white w-[564px] rounded-[10px] cursor-default"
         onClick={handleModalClick}
       >
         <div className="flex justify-end">
-          <img className="w-7 h-7" src={closeIcon} onClick={onCloseClick} />
+          <img
+            className="w-7 h-7 cursor-pointer"
+            src={closeIcon}
+            onClick={onCloseClick}
+          />
         </div>
         <div className="text-center text-cgray-950 text-m1 font-bold">
           {title}
