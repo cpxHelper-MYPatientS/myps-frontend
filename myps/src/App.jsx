@@ -7,6 +7,7 @@ import {
 import MainPage from "./pages/MainPage/MainPage.jsx";
 import CasePracticePage from "./pages/CasePage/CasePracticePage.jsx";
 import CaseDetailPage from "./pages/CasePage/CaseDetailPage.jsx";
+import TestSettingPage from "./pages/TestPage/TestSettingPage.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/case" element={<CasePracticePage />} />
         <Route path="/case/heart" element={<CaseDetailPage />} />
+        <Route path="/test/setting" element={<TestSettingPage />} />
       </Routes>
     </Router>
   );
