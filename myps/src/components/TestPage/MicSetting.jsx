@@ -28,7 +28,7 @@ const MicSetting = () => {
         </div>
         <div className="flex items-center">
           <div
-            className="flex justify-center items-center px-1 py-2.5 bg-cgray-50 border border-cgray-200 w-11 h-6 rounded-tl-a rounded-bl-a cursor-pointer"
+            className="flex justify-center items-center px-1 py-2.5 bg-cgray-50 border border-cgray-200 w-11 h-6 rounded-tl-a rounded-bl-aa cursor-pointer"
             onClick={() => handleTimeChange(-1)}
           >
             <img src={minus} />
@@ -37,7 +37,7 @@ const MicSetting = () => {
             {examTime}분
           </div>
           <div
-            className="flex justify-center items-center p-1 bg-cgray-50 border border-cgray-200 w-11 h-6 rounded-tr-a rounded-br-a cursor-pointer"
+            className="flex justify-center items-center p-1 bg-cgray-50 border border-cgray-200 w-11 h-6 rounded-tr-aa rounded-br-aa cursor-pointer"
             onClick={() => handleTimeChange(1)}
           >
             <img src={plus} />
@@ -58,7 +58,7 @@ const MicSetting = () => {
       </div>
       {/* 오디오 비주얼라이저 */}
       <div className="w-[9.25rem]">
-        <div className="flex justify-center items-center px-1 py-2 bg-violet-25 text-p1 text-violet-900 self-center w-[7.5rem] h-8 rounded-a">
+        <div className="flex justify-center items-center px-1 py-2 bg-violet-25 text-p1 text-violet-900 self-center w-[7.5rem] h-8 rounded-aa">
           마이크 테스트
         </div>
       </div>

@@ -57,8 +57,8 @@ export default {
         custom3: "0px 4px 10px 0px rgba(113, 118, 255, 0.15)",
       },
       borderRadius: {
-        a: "0.3125rem",
-        b: "0.625rem",
+        aa: "0.3125rem",
+        bb: "0.625rem",
       },
       animation: {
         "slide-down": "slideDown 0.5s ease-in-out", // slideDown 애니메이션을 0.5초로 설정
