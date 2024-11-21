@@ -9,10 +9,14 @@ const DefaultModal = ({
   const handleModalClick = (e) => {
     e.stopPropagation(); // 모달 내부 클릭은 배경 클릭 이벤트가 전파되지 않도록 처리
   };
+  const handleBackgroundClick = (e) => {
+    e.stopPropagation(); // 배경 클릭 이벤트가 상위로 전파되지 않도록 처리
+    onCloseClick(); // 모달 닫기
+  };
   return (
     <div
       className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-[100]"
-      onClick={onCloseClick} // 배경 클릭 시 모달을 닫음
+      onClick={handleBackgroundClick} // 배경 클릭 시 모달을 닫음
     >
       <div
         className="flex flex-col px-6 pt-6 pb-12 gap-5 bg-white w-[564px] rounded-[10px] cursor-default"
@@ -35,7 +39,10 @@ const DefaultModal = ({
             placeholder="아이디를 입력해주세요."
           ></input>
         )}
-        <button className="px-8 py-4 bg-button text-b1 text-white self-center rounded-[0.625rem]">
+        <button
+          className="px-8 py-4 bg-button text-b1 text-white self-center rounded-[0.625rem]"
+          onClick={onClick}
+        >
           {clickText}
         </button>
       </div>
