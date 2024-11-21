@@ -1,4 +1,5 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 import NavBar from "../../components/common/NavBar";
 import token from "../../assets/common/token.svg";
 import quiz from "../../assets/mainPage/quiz.svg";
@@ -9,6 +10,10 @@ import noteIcon from "../../assets/mainPage/note.svg";
 import CustomCase from "../../components/MainPage/CustomCase";
 
 const MainPage = () => {
+    const navigate = useNavigate();
+    const handleCaseClick = () => {
+        navigate("/case");
+    }
     return(
     <div className="flex flex-col pb-10 gap-[4.5625rem]">
     <NavBar />
@@ -38,7 +43,7 @@ const MainPage = () => {
                         <span className="text-cgray-700">“변비 환자에 필요한 신체 검진은?”</span>
                 </div>
                 <div className="flex gap-5 ">
-                    <MainMenu title="CASE 연습" isSub={true} iconSrc={caseIcon}/>
+                    <MainMenu title="CASE 연습" isSub={true} iconSrc={caseIcon} onClick={handleCaseClick}/>
                     <MainMenu title="신체검진" iconSrc={physicIcon}/>
                     <MainMenu title="노트 정리" iconSrc={noteIcon}/>
                 </div>
