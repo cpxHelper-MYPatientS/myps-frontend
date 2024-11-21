@@ -44,11 +44,10 @@ const Symptom = () => {
       <div
         className={`overflow-hidden ${
           isToggleOpen ? "animate-slide-down" : "animate-slide-up"
-          // isToggleOpen ? "animate-slide-down" : ""
         }`}
       >
         {isToggleOpen && (
-          <div className="flex flex-col justify-end px-7 py-10 bg-white border-t border-gray-200 w-[75rem] h-[49.1875rem] rounded-[0.625rem]">
+          <div className="flex flex-col justify-end px-7 py-10 bg-white shadow-custom2 border-t border-gray-200 w-[75rem] h-[49.1875rem] rounded-[0.625rem]">
             <div className="flex gap-7">
               <ToggleCase isDefault={true} />
               <ToggleCase isDefault={false} />
