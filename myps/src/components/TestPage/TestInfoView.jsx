@@ -1,5 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
 const TestInfoView = () => {
+  const navigate = useNavigate();
+  const handleSkipClick = () => {
+    navigate(`/test`);
+  };
   return (
     <div className="flex flex-col justify-center items-center bg-white shadow-custom2 w-[75rem] h-[46.5625rem] rounded-bb">
       <div className="flex flex-col gap-[4.0625rem] w-[67.5rem]">
@@ -28,7 +33,7 @@ const TestInfoView = () => {
               </div>
             </div>
             <div className="bg-cgray-200 w-[813px] h-[1px]" />
-            <div className="w-[606px] text-p1">
+            <div className="w-[37.875rem] text-p1">
               응시자는 이 환자에게
               <br />• 증상과 관련된 병력을 청취하고,
               <br />• 증상과 관련된 적절한 신체진찰을 시행 한 후,
@@ -39,8 +44,11 @@ const TestInfoView = () => {
           <ProgressBar />
         </div>
         <div className="flex flex-col justify-center items-center gap-1 text-p1 text-violet-600 font-medium">
-          1분 후 자동으로 시험이 시작됩니다
-          <button className="px-8 py-4 text-t1 font-bold bg-violet-600 text-white w-[146px] rounded-[100px]">
+          1분 후 자동으로 시험이 시작됩니다.
+          <button
+            className="px-8 py-4 text-t1 font-bold bg-violet-600 text-white w-[9.125rem] rounded-[6.25rem]"
+            onClick={handleSkipClick}
+          >
             SKIP
           </button>
         </div>

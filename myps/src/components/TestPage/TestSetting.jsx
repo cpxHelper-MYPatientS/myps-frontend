@@ -18,7 +18,7 @@ const TestSetting = () => {
           <img className="h-[25.25rem] rounded-[0.625rem]" src={userVideo} />
           <MicSetting />
         </div>
-        <div className="flex flex-col justify-between w-[25.875rem] h-[608px]">
+        <div className="flex flex-col justify-between w-[25.875rem] h-[38rem]">
           <div className="flex flex-col justify-center items-center gap-[4.75rem] bg-background border border-border h-[404px] rounded-bb">
             <div className="flex flex-col text-center gap-2">
               <span className="text-b2 font-bold">*시험 전 주의사항</span>
