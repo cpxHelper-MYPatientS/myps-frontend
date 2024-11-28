@@ -8,6 +8,8 @@ export default {
         b: "#191919",
         button: "#5338FF",
         border: "#EDEFF3",
+        chatinput: "#F7FAFF",
+        nav: "rgba(0, 0, 0, 0.20)",
         violet: {
           10: "#EAEFF8",
           25: "#E9E6FF",
@@ -34,12 +36,14 @@ export default {
       },
       backgroundImage: {
         gradientViolet: "linear-gradient(90deg, #7176FF 0%, #5039FA 100%)", // bg-gradientViolet으로 사용
+        gradientRecordText:
+          "linear-gradient(90deg, #5039FA -33.33%, #66EDCD 63.81%)",
       },
       fontSize: {
         p1: ["1rem", { lineHeight: "1.5rem" }], //16px / 24px
         p2: ["0.875rem", { lineHeight: "1.3125rem" }], //14px/ 21px
         p3: ["0.75rem", { lineHeight: "1.125rem" }], //12px / 18px
-        b1: ["1.25rem", { lineHeight: "30px" }], //20px / 30px
+        b1: ["1.25rem", { lineHeight: "1.875rem" }], //20px / 30px
         b2: ["1.125rem", { lineHeight: "1.6875rem" }], //18px / 27px
         t1: ["1.5rem", { lineHeight: "2.25rem" }], //24px / 36px
         h1: ["2rem", { lineHeight: "3rem" }], //32px / 48px
@@ -55,6 +59,7 @@ export default {
         custom1: "0px 4px 4px 0px #EFF4FD",
         custom2: "0px 2px 10px rgba(214, 216, 219, 0.25)",
         custom3: "0px 4px 10px 0px rgba(113, 118, 255, 0.15)",
+        custom4: "0px -1px 10px 0px rgba(255, 255, 255, 0.16)",
       },
       borderRadius: {
         aa: "0.3125rem",
