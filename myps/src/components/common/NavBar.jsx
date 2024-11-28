@@ -28,36 +28,38 @@ const NavBar = ({ isMain = true }) => {
 
   return (
     <div className="flex justify-between px-[22.5rem] py-4 border-b border-b-violet-10 shadow-custom1 bg-white w-full h-20">
-      <div className="flex gap-10">
-        <img
-          src={Logo}
-          className="w-[10rem] h-[2.75rem] cursor-pointer"
-          onClick={handleLogoClick}
-        />
-        {isMain ? (
-          ""
-        ) : (
-          <div className="flex gap-[3.25rem]">
-            {Addedcategories.map((category, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-1 font-medium cursor-pointer"
-                onClick={category.onClick}
-              >
-                <img src={category.img} />
-                <div>{category.text}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <div className="flex gap-5">
-        {categories.map((category, index) => (
-          <div key={index} className="flex items-center gap-1 cursor-pointer">
-            <img src={category.img} />
-            <div>{category.text}</div>
-          </div>
-        ))}
+      <div className="flex justify-between w-[75rem]">
+        <div className="flex gap-10">
+          <img
+            src={Logo}
+            className="w-[10rem] h-[2.75rem] cursor-pointer"
+            onClick={handleLogoClick}
+          />
+          {isMain ? (
+            ""
+          ) : (
+            <div className="flex gap-[3.25rem]">
+              {Addedcategories.map((category, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-1 font-medium cursor-pointer"
+                  onClick={category.onClick}
+                >
+                  <img src={category.img} />
+                  <div>{category.text}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="flex gap-5">
+          {categories.map((category, index) => (
+            <div key={index} className="flex items-center gap-1 cursor-pointer">
+              <img src={category.img} />
+              <div>{category.text}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

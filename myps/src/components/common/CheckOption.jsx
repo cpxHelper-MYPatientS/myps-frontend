@@ -27,7 +27,7 @@ const CheckOption = ({ options = [], isMultiple = false }) => {
     }
   };
   return (
-    <div className="flex items-center gap-3 text-p1 font-medium">
+    <div className="flex items-center gap-8 text-p1 font-medium">
       {options.map((option, index) => (
         <div
           key={index}
