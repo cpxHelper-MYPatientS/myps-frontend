@@ -7,6 +7,7 @@ const SpeechBubble = ({ content, isUser = true }) => {
     setShow(true);
   }, []);
 
+  //사용자 말풍선이면 isUser true, GPT 말풍선이면 false
   const bubbleStyle = isUser
     ? "bg-violet-50 text-violet-600 ml-auto rounded-tl-bb rounded-tr-bb rounded-bl-bb" // 사용자 말풍선: 오른쪽 정렬
     : "bg-background text-black rounded-tl-bb rounded-tr-bb rounded-br-bb"; // GPT 말풍선: 왼쪽 정렬
