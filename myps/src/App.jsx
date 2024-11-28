@@ -9,6 +9,7 @@ import CasePracticePage from "./pages/CasePage/CasePracticePage.jsx";
 import CaseDetailPage from "./pages/CasePage/CaseDetailPage.jsx";
 import TestSettingPage from "./pages/TestPage/TestSettingPage.jsx";
 import TestIntroPage from "./pages/TestPage/TestIntroPage.jsx";
+import TestPage from "./pages/TestPage/TestPage.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/case/heart" element={<CaseDetailPage />} />
         <Route path="/test/setting" element={<TestSettingPage />} />
         <Route path="/test/intro" element={<TestIntroPage />} />
+        <Route path="/test" element={<TestPage />} />
       </Routes>
     </Router>
   );
