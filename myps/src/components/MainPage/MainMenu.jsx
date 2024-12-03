@@ -5,12 +5,12 @@ const MainMenu = ({ title, iconSrc, isSub = false, onClick }) => {
   return (
     <div
       className="flex flex-col w-[24.1875rem] h-[21.75rem] px-10 pt-10 pb-9 justify-between bg-white shadow-custom2 rounded-[0.625rem] cursor-pointer"
-      style={{ backgroundImage: `url(${grad})` }}
+      style={{ backgroundImage: `url(/assets/mainPage/grad.svg)` }}
       onClick={onClick}
     >
       <div
         className="flex justify-center items-center w-[60px] h-[60px]"
-        style={{ backgroundImage: `url(${circle})` }}
+        style={{ backgroundImage: `url(/assets/mainPage/circle.svg)` }}
       >
         <img src={iconSrc} />
       </div>
