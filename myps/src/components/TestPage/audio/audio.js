@@ -42,13 +42,11 @@ export const stopRecording = () => {
 
   // 녹음 상태를 false로 설정
   isRecording = false;
-
   // 애니메이션 프레임 취소
   if (onFrameId) {
     window.cancelAnimationFrame(onFrameId);
     onFrameId = null; // 프레임 ID 초기화
   }
-
   // 오디오 스트림 트랙들을 중지
   if (audioStream) {
     audioStream.getTracks().forEach((track) => {
