@@ -8,14 +8,12 @@ import TestView from "../../components/TestPage/TestView";
 const TestPage = () => {
   return (
     <div className="flex flex-col pb-[7.125rem]">
-      <div className="flex flex-col mt-[72px] gap-5 mx-[22.5rem]">
-        {/* 클릭범위 어디까지?  */}
-        <div className="">
-          <div className="flex items-center gap-1 cursor-pointer">
-            <img className="w-5 h-5" src={exitIcon} />
-            <div>시험 종료</div>
-          </div>
+      <div className="flex flex-col mt-[72px] gap-2 mx-[22.5rem]">
+        <div className="flex items-center p-2 gap-1 text-cgray-900 font-medium text-p1 cursor-pointer w-fit">
+          <img className="w-5 h-5" src={exitIcon} />
+          <div>시험 종료</div>
         </div>
+
         <TestView />
       </div>
     </div>
