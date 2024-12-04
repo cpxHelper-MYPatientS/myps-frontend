@@ -22,7 +22,7 @@ const MicSetting = () => {
   return (
     <div className="flex flex-col items-start gap-5">
       {/* 시험시간  */}
-      <div className="flex ">
+      <div className="flex items-center">
         <div className="flex gap-2 font-medium w-[9.25rem]">
           <img src={clock} className="w-6 h-6" /> 시험시간
         </div>
@@ -33,7 +33,7 @@ const MicSetting = () => {
           >
             <img src={minus} />
           </div>
-          <div className="flex justify-center px-2.5 border-t border-b border-t-cgray-200 border-b-cgray-200 text-p1 font-medium w-[8.375rem] h-6 ">
+          <div className="flex justify-center px-2.5 border-t border-b border-t-cgray-200 border-b-cgray-200 text-p1 font-medium w-[5.5rem] h-6 ">
             {examTime}분
           </div>
           <div
@@ -43,9 +43,14 @@ const MicSetting = () => {
             <img src={plus} />
           </div>
         </div>
+        <div className="ml-5 text-cgray-950 text-p2">
+          시험시간 이후,{" "}
+          <span className="font-medium text-b">자동으로 시험이 종료</span>
+          됩니다.
+        </div>
       </div>
       {/* 마이크  */}
-      <div className="flex ">
+      <div className="flex">
         <div className="flex gap-2 font-medium w-[9.25rem]">
           <img src={mic} className="w-6 h-6" /> 마이크
         </div>

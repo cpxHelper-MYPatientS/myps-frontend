@@ -6,7 +6,7 @@ const SituationInstruction = () => {
       </span>
       <div className="flex flex-col items-center gap-3 text-b1 font-medium">
         [활력징후]
-        <div className="flex flex-col justify-center items-center gap-[0.3125rem]">
+        <div className="flex flex-col justify-center items-start gap-[0.3125rem]">
           <div className="flex gap-4">
             혈압 :<span>120/70mmHg</span>
           </div>
