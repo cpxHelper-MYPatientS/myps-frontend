@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import SpeechBubble from "./SpeechBubble";
 import ChatInput from "./ChatInput";
 
-const Chat = () => {
+const Chat = ({ isMicOn }) => {
   const [bubbles, setBubbles] = useState([]);
   const scrollRef = useRef();
 
@@ -34,7 +34,7 @@ const Chat = () => {
     <div className="flex flex-col bg-white px-8 pb-6 gap-6 justify-end w-full h-[352px] rounded-bl-bb rounded-br-bb">
       <div
         ref={scrollRef}
-        className="flex flex-col justify-end gap-1.5 w-full h-full overflow-y-auto"
+        className="flex flex-col justify-end gap-1.5 w-full overflow-y-auto"
       >
         {/* 스크롤이 왜 안되지?ㅠㅠ  */}
         {bubbles.map((item, index) => (
@@ -45,7 +45,7 @@ const Chat = () => {
           />
         ))}
       </div>
-      <ChatInput getBubbles={newBubbles} />
+      <ChatInput getBubbles={newBubbles} isMicOn={isMicOn} />
     </div>
   );
 };

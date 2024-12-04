@@ -2,9 +2,8 @@ import { useState } from "react";
 import sendIcon from "../../assets/testPage/send.svg";
 import recordIcon from "../../assets/testPage/record.svg";
 
-const ChatInput = ({ getBubbles }) => {
+const ChatInput = ({ getBubbles, isMicOn }) => {
   const [content, setContent] = useState("");
-  const [isRecording, setIsRecording] = useState(false);
 
   const addBubble = () => {
     if (content.trim()) {
@@ -26,7 +25,7 @@ const ChatInput = ({ getBubbles }) => {
 
   return (
     <div className="flex justify-between items-center chat-input px-8 py-2 bg-chatinput text-p1 w-full h-[58px] shrink-0 rounded-[100px]">
-      {isRecording ? (
+      {isMicOn ? (
         <div className="font-medium bg-clip-text text-transparent bg-gradientRecordText">
           웹에서 녹음중...
         </div>
@@ -44,9 +43,7 @@ const ChatInput = ({ getBubbles }) => {
         className="flex justify-center items-center bg-white w-10 h-10 rounded-[100px]"
         onClick={addBubble}
       >
-        <img src={isRecording ? recordIcon : sendIcon} alt="send" />
-        {/* 녹음 시 밑의 이미지로 바뀜  */}
-        {/* <img src={recordIcon} alt="record" /> */}
+        <img src={isMicOn ? recordIcon : sendIcon} alt="send" />
       </button>
     </div>
   );

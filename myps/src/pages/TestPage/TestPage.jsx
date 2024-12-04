@@ -13,7 +13,6 @@ const TestPage = () => {
           <img className="w-5 h-5" src={exitIcon} />
           <div>시험 종료</div>
         </div>
-
         <TestView />
       </div>
     </div>
