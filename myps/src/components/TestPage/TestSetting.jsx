@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import userVideo from "../../assets/testPage/user-image.png";
+// import userVideo from "../../assets/testPage/user-image.png";
 import token from "../../assets/common/token.svg";
 import MicSetting from "./MicSetting";
 const TestSetting = () => {
@@ -14,10 +14,8 @@ const TestSetting = () => {
         과목명 / 주호소명 / ##세, #성, ####님
       </div>
       <div className="flex items-start gap-10">
-        <div className="flex flex-col gap-[1.6875rem] w-[41.125rem]">
-          <img className="h-[25.25rem] rounded-[0.625rem]" src={userVideo} />
-          <MicSetting />
-        </div>
+        {/* <img className="h-[25.25rem] rounded-[0.625rem]" src={userVideo} /> */}
+        <MicSetting />
         <div className="flex flex-col justify-between w-[25.875rem] h-[38rem]">
           <div className="flex flex-col justify-center items-center gap-[4.75rem] bg-background border border-border h-[404px] rounded-bb">
             <div className="flex flex-col text-center gap-2">

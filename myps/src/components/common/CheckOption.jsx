@@ -4,14 +4,29 @@ import checkNo from "../../assets/testPage/check-no.svg";
 
 // isMultiple=true: 복수선택 가능, 처음에 아무것도 체크되어있지 않은 상태가 됨
 // isMultiple=false(기본값): 복수선택 불가능(단일선택), 처음에 들어오는 옵션이 선택되어있음
-const CheckOption = ({ options = [], isMultiple = false }) => {
-  const [selectedIndexes, setSelectedIndexes] = useState([]);
+// defaultCheckedIndex: 처음에 선택되어있는 옵션의 인덱스 배열
+// defaultCheckedIndex가 없으면 처음에 아무것도 선택되어있지 않은 상태가 됨
+// 예시: defaultCheckedIndex={[1]}
+// onChange: 옵션선택에 따라 특정 작용 일어나야할때 전달
+
+const CheckOption = ({
+  options = [],
+  isMultiple = false,
+  onChange,
+  defaultCheckedIndex,
+}) => {
+  const [selectedIndexes, setSelectedIndexes] = useState(
+    defaultCheckedIndex || []
+  );
   useEffect(() => {
-    // 복수 선택 불가능한 경우 첫 번째 옵션을 기본적으로 선택
-    if (!isMultiple && options.length > 0) {
-      setSelectedIndexes([0]);
+    if (!isMultiple && selectedIndexes.length > 0) {
+      const selectedOption = options[selectedIndexes[0]];
+      // 옵션선택에 따라 특정 작용 일어나야할때 onChange 전달
+      if (onChange) {
+        onChange(selectedOption);
+      }
     }
-  }, [isMultiple, options]);
+  }, [selectedIndexes, isMultiple, options]);
   const handleClick = (index) => {
     if (isMultiple) {
       // 복수 선택 가능
