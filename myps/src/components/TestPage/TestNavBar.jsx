@@ -6,7 +6,7 @@ import DefaultModal from "../common/DefaultModal";
 import useModal from "../../hooks/useModal";
 import SituationInstruction from "./SituationInstruction";
 
-const TestNavBar = () => {
+const TestNavBar = ({ onHandWash, formatTime }) => {
   const [showTimer, setShowTimer] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0); // 경과 시간 저장
   const { activeModal, openModal, closeModal } = useModal();
@@ -20,14 +20,6 @@ const TestNavBar = () => {
     // 컴포넌트가 언마운트될 때 타이머 정리
     return () => clearInterval(interval);
   }, []);
-  // 시간 형식 변환 함수
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
 
   const activities = [
     {
@@ -35,12 +27,12 @@ const TestNavBar = () => {
       text: "손소독",
       onClick: () => {
         console.log("손소독 클릭됨");
-        // 손소독 관련 로직 추가
+        onHandWash(elapsedTime);
       },
     },
     {
       img: timer,
-      text: "타이머 보기",
+      text: "소요시간",
       onClick: () => {
         setShowTimer(true);
         setTimeout(() => setShowTimer(false), 4000); // 4초 후 토스트 메시지 사라짐

@@ -2,9 +2,19 @@ import { useState, useRef, useEffect } from "react";
 import SpeechBubble from "./SpeechBubble";
 import ChatInput from "./ChatInput";
 
-const Chat = ({ isMicOn }) => {
+const Chat = ({ isMicOn, handWashLogs }) => {
   const [bubbles, setBubbles] = useState([]);
   const scrollRef = useRef();
+
+  useEffect(() => {
+    if (handWashLogs.length > 0) {
+      // 가장 최근 로그에 대한 버블 추가
+      const handWashBubble = {
+        isHandWashClicked: true,
+      };
+      setBubbles((prev) => [...prev, handWashBubble]);
+    }
+  }, [handWashLogs]);
 
   //스크롤 자동 올림
   useEffect(() => {
@@ -42,6 +52,7 @@ const Chat = ({ isMicOn }) => {
             key={index}
             content={item.content}
             isUser={item.isUser}
+            isHandWashClicked={item.isHandWashClicked}
           />
         ))}
       </div>
