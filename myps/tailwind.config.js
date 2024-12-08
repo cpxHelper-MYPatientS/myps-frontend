@@ -24,6 +24,7 @@ export default {
           200: "#D9E0E4",
           300: "#BFCAD1",
           400: "#AFBCC5",
+          500: "#8999A8",
           700: "#6B778A",
           900: "#4B535D",
           950: "#30353B",
@@ -38,6 +39,7 @@ export default {
         gradientViolet: "linear-gradient(90deg, #7176FF 0%, #5039FA 100%)", // bg-gradientViolet으로 사용
         gradientRecordText:
           "linear-gradient(90deg, #5039FA -33.33%, #66EDCD 63.81%)",
+        gradientChat: "linear-gradient(180deg, #ECF0FF 0%, #FFF 100%)",
       },
       fontSize: {
         p1: ["1rem", { lineHeight: "1.5rem" }], //16px / 24px
@@ -49,6 +51,7 @@ export default {
         h1: ["2rem", { lineHeight: "3rem" }], //32px / 48px
         h2: ["1.625rem", { lineHeight: "2.4375rem" }], //26px / 39px
         m1: ["1.25rem", { lineHeight: "2.125rem" }], //20px / 34px
+        st: ["22px", { lineHeight: "33px" }], //22px / 33px
       },
       fontWeight: {
         bold: 700,

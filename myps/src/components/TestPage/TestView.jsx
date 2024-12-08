@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import patientImg from "../../assets/testPage/patient-image.png";
 // import userVideo from "../../assets/testPage/user-image.png";
@@ -22,9 +23,28 @@ const formatTime = (seconds) => {
 };
 
 const TestView = () => {
+  const navigate = useNavigate();
   const [isMicOn, setIsMicOn] = useState(true);
   const [isCamOn, setIsCamOn] = useState(true);
   const [handWashLogs, setHandWashLogs] = useState([]);
+  const [examStep, setExamStep] = useState(0);
+
+  // 검진 단계별 버튼 텍스트와 채팅 메시지
+  const examSteps = [
+    {
+      stage: 1,
+      buttonText: "신체 검진 시작",
+    },
+    {
+      stage: 2,
+      buttonText: "신체 검진 결과 확인",
+    },
+    {
+      stage: 3,
+      buttonText: "환자 교육 시작",
+    },
+    { stage: 4, buttonText: "시험 종료" },
+  ];
 
   // 마이크 버튼 클릭 핸들러
   const handleMicChange = () => {
@@ -44,11 +64,56 @@ const TestView = () => {
       return newLogs;
     });
   };
-
-  // useEffect로 상태 변화 감지
+  // useEffect로 손소독 상태변화
   useEffect(() => {
     console.log("handWashLogs changed:", handWashLogs);
   }, [handWashLogs]);
+
+  // 검진 단계 변경 핸들러
+  const handleExamStep = () => {
+    if (examStep < examSteps.length - 1) {
+      // 현재 단계별 특정 로직 실행
+      switch (examStep) {
+        case 0: // 신체 검진 시작 버튼 누를 시
+          handlePhysicalExamStart();
+          break;
+        case 1: // 신체 검진 결과 확인 버튼 누를 시
+          handleShowPhysicalExamResult();
+          break;
+        case 2: // 환자 교육 시작 버튼 누를 시
+          handleStartPatientEducation();
+          break;
+        default:
+          break;
+      }
+
+      setExamStep((prev) => prev + 1);
+    } else if (examStep === examSteps.length - 1) {
+      handleExamComplete();
+    }
+  };
+
+  // 각 단계별 핸들러 함수
+  const handlePhysicalExamStart = () => {
+    // 신체 검진 시작 시 필요한 로직
+    console.log("신체 검진 시작");
+  };
+
+  const handleShowPhysicalExamResult = () => {
+    // 신체 검진 결과 확인 시 필요한 로직
+    console.log("신체 검진 결과 확인");
+  };
+
+  const handleStartPatientEducation = () => {
+    // 환자 교육 시작 시 필요한 로직
+    console.log("환자 교육 시작");
+  };
+
+  const handleExamComplete = () => {
+    // 시험 종료 시 필요한 로직
+    console.log("시험 종료");
+    navigate(`/test/loading`);
+  };
 
   return (
     <div className="flex gap-5">
@@ -65,6 +130,7 @@ const TestView = () => {
           isMicOn={isMicOn}
           handWashLogs={handWashLogs}
           formatTime={formatTime}
+          stage={examStep}
         />
       </div>
       {/* 오른쪽 창 */}
@@ -100,7 +166,10 @@ const TestView = () => {
           </div>
         </div>
         <Memo />
-        <ButtonComponent text="신체 검진 시작" />
+        <ButtonComponent
+          text={examSteps[examStep].buttonText}
+          onClick={handleExamStep}
+        />
       </div>
     </div>
   );
