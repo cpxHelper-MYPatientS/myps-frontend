@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import patientImg from "../../assets/testPage/patient-image.png";
 // import userVideo from "../../assets/testPage/user-image.png";
@@ -11,9 +11,20 @@ import Memo from "./Memo";
 import ButtonComponent from "../common/ButtonComponent";
 import Chat from "./Chat";
 import { startRecording, stopRecording, isRecording } from "./audio/audio";
+
+// formatTime 함수를 파일 상단에 정의
+const formatTime = (seconds) => {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+    .toString()
+    .padStart(2, "0")}`;
+};
+
 const TestView = () => {
   const [isMicOn, setIsMicOn] = useState(true);
   const [isCamOn, setIsCamOn] = useState(true);
+  const [handWashLogs, setHandWashLogs] = useState([]);
 
   // 마이크 버튼 클릭 핸들러
   const handleMicChange = () => {
@@ -26,6 +37,19 @@ const TestView = () => {
     }
   };
 
+  // 손소독 클릭시 시간과 함께 기록
+  const handleHandWash = (time) => {
+    setHandWashLogs((prev) => {
+      const newLogs = [...prev, { timestamp: time }];
+      return newLogs;
+    });
+  };
+
+  // useEffect로 상태 변화 감지
+  useEffect(() => {
+    console.log("handWashLogs changed:", handWashLogs);
+  }, [handWashLogs]);
+
   return (
     <div className="flex gap-5">
       {/* 왼쪽창  */}
@@ -34,10 +58,14 @@ const TestView = () => {
           className="flex justify-center items-end pb-[0.875rem] w-full h-[500px] rounded-tl-bb rounded-tr-bb"
           style={{ backgroundImage: `url(${patientImg})` }}
         >
-          <TestNavBar />
+          <TestNavBar onHandWash={handleHandWash} formatTime={formatTime} />
         </div>
         {/* 채팅창 들어갈 자리 */}
-        <Chat isMicOn={isMicOn} />
+        <Chat
+          isMicOn={isMicOn}
+          handWashLogs={handWashLogs}
+          formatTime={formatTime}
+        />
       </div>
       {/* 오른쪽 창 */}
       <div className="flex flex-col gap-6 w-[387px]">
@@ -77,4 +105,5 @@ const TestView = () => {
     </div>
   );
 };
+
 export default TestView;

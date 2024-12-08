@@ -1,3 +1,5 @@
+import React from "react";
+import Webcam from "react-webcam";
 import NavBar from "../../components/common/NavBar";
 import IntroHeader from "../../components/TestPage/IntroHeader";
 import TestSetting from "../../components/TestPage/TestSetting";
