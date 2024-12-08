@@ -39,7 +39,7 @@ const SpeechBubble = ({
     switch (stepType) {
       case 1:
         return (
-          <div className="flex flex-col justify-startitems-center gap-7 border-t-2 border-violet-300 w-[45.5625rem] h-[304px]">
+          <div className="flex flex-col justify-start items-center mb-10 gap-7 border-t-2 border-violet-300 w-[45.5625rem]">
             <div className="flex justify-center items-center text-st bg-gradientChat text-violet-300  font-medium w-full h-16 backdrop-blur-[0.9375rem]">
               신체 검진
             </div>
@@ -51,7 +51,7 @@ const SpeechBubble = ({
         );
       case 2:
         return (
-          <div className="flex flex-col justify-startitems-center gap-5 border-t-2 border-violet-300 w-[45.5625rem] h-[304px]">
+          <div className="flex flex-col justify-start items-center mt-6 gap-5 border-t-2 border-violet-300 w-[45.5625rem] h-[304px]">
             <div className="flex justify-center items-center text-st bg-gradientChat text-violet-300  font-medium w-full h-16 backdrop-blur-[0.9375rem]">
               신체 검진 결과 확인
             </div>
@@ -69,7 +69,7 @@ const SpeechBubble = ({
         );
       case 3:
         return (
-          <div className="flex flex-col justify-startitems-center gap-7 border-t-2 border-violet-300 w-[45.5625rem] h-[226px]">
+          <div className="flex flex-col justify-start items-center mt-6 mb-[130px] gap-7 border-t-2 border-violet-300 w-[45.5625rem] ">
             <div className="flex justify-center mb-5 items-center text-st bg-gradientChat text-violet-300  font-medium w-full h-16 backdrop-blur-[0.9375rem]">
               환자 교육
             </div>

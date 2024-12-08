@@ -88,9 +88,9 @@ const Chat = ({ isMicOn, handWashLogs, stage }) => {
     <div className="flex flex-col bg-white px-8 pb-6 gap-6 justify-end w-full h-[352px] rounded-bl-bb rounded-br-bb">
       <div
         ref={scrollRef}
-        className="flex flex-col justify-end gap-1.5 w-full overflow-y-auto"
+        className="flex flex-col gap-1.5 w-full h-full overflow-y-auto scrollbar-hide"
       >
-        {/* 스크롤이 왜 안되지?ㅠㅠ  */}
+        <div className="flex-grow"></div>
         {bubbles.map((item, index) => (
           <SpeechBubble
             key={index}
