@@ -1,11 +1,11 @@
 import closeIcon from "../../assets/common/close.svg";
 const DefaultModal = ({
   width = "w-[564px]",
-  title,
-  isTyping = false,
-  onClick,
-  clickText,
-  onCloseClick,
+  title, //내용 문구
+  isTyping = false, //입력창 유무
+  onClick, //버튼 클릭시 작동할 함수
+  clickText, //버튼 텍스트 문구
+  onCloseClick, // 닫는 함수 전달 필요 onCloseClick={closeModal}
   children,
 }) => {
   const handleModalClick = (e) => {
@@ -45,7 +45,7 @@ const DefaultModal = ({
         )}
         {clickText && (
           <button
-            className="px-8 py-4 bg-button text-b1 text-white self-center rounded-[0.625rem]"
+            className="px-8 py-4 bg-button text-b1 text-white self-center font-bold rounded-[0.625rem]"
             onClick={onClick}
           >
             {clickText}

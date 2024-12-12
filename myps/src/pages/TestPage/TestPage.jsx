@@ -1,7 +1,5 @@
 import exitIcon from "../../assets/testPage/exit.svg";
 import NavBar from "../../components/common/NavBar";
-import IntroHeader from "../../components/TestPage/IntroHeader";
-import TestSetting from "../../components/TestPage/TestSetting";
 import TestView from "../../components/TestPage/TestView";
 
 // TestIntroPage에서 넘어오는것 외에는 주소를 쳐서 들어오지 못하도록 하는 작업 필요

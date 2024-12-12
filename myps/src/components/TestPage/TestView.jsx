@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import patientImg from "../../assets/testPage/patient-image.png";
-// import userVideo from "../../assets/testPage/user-image.png";
 import micOn from "../../assets/testPage/mic-on.svg";
 import micOff from "../../assets/testPage/mic-off.svg";
 import camOn from "../../assets/testPage/cam-on.svg";
@@ -11,7 +10,9 @@ import TestNavBar from "./TestNavBar";
 import Memo from "./Memo";
 import ButtonComponent from "../common/ButtonComponent";
 import Chat from "./Chat";
-import { startRecording, stopRecording, isRecording } from "./audio/audio";
+import DefaultModal from "../common/DefaultModal";
+import useModal from "../../hooks/useModal";
+import { startRecording, stopRecording } from "./audio/audio";
 import { useTestSetting } from "../context/TestSettingContext";
 
 // formatTime 함수를 파일 상단에 정의
@@ -25,11 +26,9 @@ const formatTime = (seconds) => {
 
 const TestView = () => {
   const navigate = useNavigate();
+  const { activeModal, openModal, closeModal } = useModal();
   const { examTime, isCameraOn, setIsCameraOn, isMicOn, setIsMicOn } =
     useTestSetting();
-  console.log("상태확인", examTime, isCameraOn, isMicOn);
-  // const [isMicOn, setIsMicOn] = useState(true);
-  // const [isCamOn, setIsCamOn] = useState(true);
   const [handWashLogs, setHandWashLogs] = useState([]);
   const [examStep, setExamStep] = useState(0);
 
@@ -82,7 +81,8 @@ const TestView = () => {
           handlePhysicalExamStart();
           break;
         case 1: // 신체 검진 결과 확인 버튼 누를 시
-          handleShowPhysicalExamResult();
+          // 모달먼저
+          openModal("step2");
           break;
         case 2: // 환자 교육 시작 버튼 누를 시
           handleStartPatientEducation();
@@ -91,7 +91,7 @@ const TestView = () => {
           break;
       }
 
-      setExamStep((prev) => prev + 1);
+      // setExamStep((prev) => prev + 1);
     } else if (examStep === examSteps.length - 1) {
       handleExamComplete();
     }
@@ -101,16 +101,20 @@ const TestView = () => {
   const handlePhysicalExamStart = () => {
     // 신체 검진 시작 시 필요한 로직
     console.log("신체 검진 시작");
+    setExamStep((prev) => prev + 1);
   };
 
   const handleShowPhysicalExamResult = () => {
     // 신체 검진 결과 확인 시 필요한 로직
     console.log("신체 검진 결과 확인");
+    setExamStep((prev) => prev + 1);
+    closeModal();
   };
 
   const handleStartPatientEducation = () => {
     // 환자 교육 시작 시 필요한 로직
     console.log("환자 교육 시작");
+    setExamStep((prev) => prev + 1);
   };
 
   const handleExamComplete = () => {
@@ -189,6 +193,20 @@ const TestView = () => {
           onClick={handleExamStep}
         />
       </div>
+      {activeModal === "step2" && (
+        <DefaultModal
+          title={
+            <>
+              실제로 신체검진을 연습하셨나요?
+              <br />
+              결과 확인 후, 환자교육이 시작됩니다.
+            </>
+          }
+          clickText="다음"
+          onCloseClick={closeModal}
+          onClick={handleShowPhysicalExamResult}
+        />
+      )}
     </div>
   );
 };

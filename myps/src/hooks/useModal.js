@@ -4,7 +4,9 @@ import { useState } from "react";
 // useModal: 모달 상태와 관련된 로직을 캡슐화
 // 사용방법:
 // 모달을 사용하려는 컴포넌트 내에
-// const { activeModal, openModal, closeModal } = useModal(); 추가 한후
+// import useModal from "../../hooks/useModal";
+// const { activeModal, openModal, closeModal } = useModal();
+// 추가 한후
 {
   /* <div
       className="flex justify-between items-center py-4 border-b border-b-cgray-300 cursor-pointer"
