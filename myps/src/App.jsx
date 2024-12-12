@@ -1,14 +1,35 @@
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import MainPage from "./pages/MainPage/MainPage.jsx";
+import CasePracticePage from "./pages/CasePage/CasePracticePage.jsx";
+import CaseDetailPage from "./pages/CasePage/CaseDetailPage.jsx";
+import TestSettingPage from "./pages/TestPage/TestSettingPage.jsx";
+import TestIntroPage from "./pages/TestPage/TestIntroPage.jsx";
+import TestPage from "./pages/TestPage/TestPage.jsx";
+import TestLoadingPage from "./pages/TestPage/TestLoadingPage.jsx";
+import { TestSettingProvider } from "./components/context/TestSettingContext.jsx";
 
 function App() {
-
-
   return (
-    <>
-      <div className='m-auto text-red-600'>
-      안녕하세요. 의사 국가고시 실기 시험 CPX를 위한 모의 진료 플랫폼, 마이피스입니다. 
-      </div>
-    </>
-  )
+    <Router future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/case" element={<CasePracticePage />} />
+        <Route path="/case/heart" element={<CaseDetailPage />} />
+        <Route path="/test/intro" element={<TestIntroPage />} />
+        <Route element={<TestSettingProvider />}>
+          <Route path="/test/setting" element={<TestSettingPage />} />
+          <Route path="/test" element={<TestPage />} />
+        </Route>
+
+        <Route path="/test/loading" element={<TestLoadingPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
