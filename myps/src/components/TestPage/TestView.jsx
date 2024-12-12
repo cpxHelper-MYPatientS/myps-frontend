@@ -93,7 +93,8 @@ const TestView = () => {
 
       // setExamStep((prev) => prev + 1);
     } else if (examStep === examSteps.length - 1) {
-      handleExamComplete();
+      // handleExamComplete();
+      openModal("step4");
     }
   };
 
@@ -205,6 +206,20 @@ const TestView = () => {
           clickText="다음"
           onCloseClick={closeModal}
           onClick={handleShowPhysicalExamResult}
+        />
+      )}
+      {activeModal === "step4" && (
+        <DefaultModal
+          title={
+            <>
+              시험을 종료하시겠습니까?
+              <br />
+              피드백 화면으로 이동합니다.
+            </>
+          }
+          clickText="종료"
+          onCloseClick={closeModal}
+          onClick={handleExamComplete}
         />
       )}
     </div>
