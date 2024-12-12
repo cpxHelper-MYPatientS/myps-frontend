@@ -1,6 +1,7 @@
 export let isRecording = false;
 let onFrameId = null;
 let audioStream;
+// let audioContext = null;
 
 export const startRecording = () => {
   console.log("start 활성화");
@@ -37,8 +38,8 @@ export const startRecording = () => {
     });
 };
 
-export const stopRecording = () => {
-  console.log("stop 활성화");
+export const stopRecording = async () => {
+  console.log("stop Recording 함수 시작");
 
   // 녹음 상태를 false로 설정
   isRecording = false;
@@ -46,11 +47,15 @@ export const stopRecording = () => {
   if (onFrameId) {
     window.cancelAnimationFrame(onFrameId);
     onFrameId = null; // 프레임 ID 초기화
+    console.log("onFrameId 초기화", onFrameId);
   }
   // 오디오 스트림 트랙들을 중지
+
   if (audioStream) {
+    console.log("audioStream", audioStream);
     audioStream.getTracks().forEach((track) => {
       track.stop();
+      console.log("track 중지");
     });
     audioStream = null; // 스트림 객체 초기화
   }

@@ -12,6 +12,7 @@ import Memo from "./Memo";
 import ButtonComponent from "../common/ButtonComponent";
 import Chat from "./Chat";
 import { startRecording, stopRecording, isRecording } from "./audio/audio";
+import { useTestSetting } from "../context/TestSettingContext";
 
 // formatTime 함수를 파일 상단에 정의
 const formatTime = (seconds) => {
@@ -24,8 +25,11 @@ const formatTime = (seconds) => {
 
 const TestView = () => {
   const navigate = useNavigate();
-  const [isMicOn, setIsMicOn] = useState(true);
-  const [isCamOn, setIsCamOn] = useState(true);
+  const { examTime, isCameraOn, setIsCameraOn, isMicOn, setIsMicOn } =
+    useTestSetting();
+  console.log("상태확인", examTime, isCameraOn, isMicOn);
+  // const [isMicOn, setIsMicOn] = useState(true);
+  // const [isCamOn, setIsCamOn] = useState(true);
   const [handWashLogs, setHandWashLogs] = useState([]);
   const [examStep, setExamStep] = useState(0);
 
@@ -115,6 +119,20 @@ const TestView = () => {
     navigate(`/test/loading`);
   };
 
+  // 컴포넌트 마운트 시 마이크 상태 확인 및 초기화
+  useEffect(() => {
+    const storedMicState = sessionStorage.getItem("isMicOn") === "true";
+    console.log("마운트 시 마이크 상태:", storedMicState);
+
+    if (storedMicState) {
+      setIsMicOn(true);
+      startRecording(); // 오디오 비주얼라이저 재시작
+    } else {
+      setIsMicOn(false);
+      stopRecording();
+    }
+  }, []); // 컴포넌트 마운트 시에만 실행
+
   return (
     <div className="flex gap-5">
       {/* 왼쪽창  */}
@@ -138,7 +156,7 @@ const TestView = () => {
         {/* <img className="h-[251px] rounded-bb" src={userVideo} /> */}
         <div className="relative flex items-center justify-center h-[251px] rounded-bb">
           {/* 셀프캠 구현 */}
-          {isCamOn ? (
+          {isCameraOn ? (
             <Webcam
               audio={false}
               width="100%"
@@ -159,9 +177,9 @@ const TestView = () => {
             </button>
             <button
               className="flex justify-center items-center p-2 border [background:rgba(255,255,255,0.20)] shadow-custom2_inset,0px_4px_4px_0px_rgba(255,255,255,0.13)_inset] backdrop-blur-[25px] border-solid border-[rgba(255,255,255,0.43)] w-10 h-10 rounded-full"
-              onClick={() => setIsCamOn(!isCamOn)}
+              onClick={() => setIsCameraOn(!isCameraOn)}
             >
-              <img className="w-6 h-6" src={isCamOn ? camOn : camOff} />
+              <img className="w-6 h-6" src={isCameraOn ? camOn : camOff} />
             </button>
           </div>
         </div>

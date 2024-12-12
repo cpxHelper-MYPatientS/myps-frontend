@@ -1,18 +1,46 @@
 import Webcam from "react-webcam";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clock from "../../assets/testPage/clock.svg";
 import minus from "../../assets/testPage/minus.svg";
 import plus from "../../assets/testPage/plus.svg";
 import mic from "../../assets/testPage/mic.svg";
 import camera from "../../assets/testPage/camera.svg";
-
+import { useTestSetting } from "../context/TestSettingContext";
 import CheckOption from "../common/CheckOption";
 import { startRecording, stopRecording, isRecording } from "./audio/audio";
 
 const MicSetting = () => {
-  const [examTime, setExamTime] = useState(12); // 시험 시간 기본값 12분
-  const [isCameraOn, setIsCameraOn] = useState(true); // 카메라 상태
-  const [isMicOn, setIsMicOn] = useState(isRecording); // 마이크 상태
+  // const [examTime, setExamTime] = useState(12); // 시험 시간 기본값 12분
+  // const [isCameraOn, setIsCameraOn] = useState(true); // 카메라 상태
+  // const [isMicOn, setIsMicOn] = useState(false); // 마이크 상태
+  const {
+    examTime,
+    setExamTime,
+    isCameraOn,
+    setIsCameraOn,
+    isMicOn,
+    setIsMicOn,
+  } = useTestSetting();
+
+  // 컴포넌트 마운트와 언마운트 시 마이크 상태 관리
+  useEffect(() => {
+    const storedMicState = sessionStorage.getItem("isMicOn") === "true";
+
+    if (storedMicState) {
+      // 마이크가 켜져있어야 하는 상태라면
+      setIsMicOn(true);
+      startRecording();
+    } else {
+      setIsMicOn(false);
+      stopRecording();
+    }
+
+    // 클린업 함수 추가
+    return () => {
+      stopRecording();
+    };
+  }, []);
+
   const handleTimeChange = (increment) => {
     setExamTime((prevTime) => {
       const newTime = prevTime + increment;
@@ -30,12 +58,9 @@ const MicSetting = () => {
   // 마이크 테스트 버튼 클릭 핸들러
   const handleMicChange = (selectedOption) => {
     const shouldTurnOn = selectedOption === "켜기";
-    console.log("shouldTurnOn", shouldTurnOn);
-    console.log("isMicOn", isMicOn);
     // 현재 상태와 다를 때만 실행
     if (shouldTurnOn !== isMicOn) {
       setIsMicOn(shouldTurnOn);
-
       if (shouldTurnOn) {
         startRecording();
       } else {
@@ -101,7 +126,7 @@ const MicSetting = () => {
               options={["켜기", "끄기 (채팅으로 문진)"]}
               isMultiple={false}
               onChange={handleMicChange}
-              defaultCheckedIndex={[1]}
+              defaultCheckedIndex={[isMicOn ? 0 : 1]}
             />
           </div>
         </div>
@@ -127,7 +152,7 @@ const MicSetting = () => {
               options={["켜기", "끄기 (녹화본 제공X)"]}
               isMultiple={false}
               onChange={handleCameraChange}
-              defaultCheckedIndex={[1]}
+              defaultCheckedIndex={[isCameraOn ? 0 : 1]}
             />
           </div>
         </div>
