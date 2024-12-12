@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import SpeechBubble from "./SpeechBubble";
 import ChatInput from "./ChatInput";
+import { startChat } from "../../api/chat";
 
 const Chat = ({ isMicOn, handWashLogs, stage }) => {
   const [bubbles, setBubbles] = useState([]);
+  const [currentCaseExamId, setCurrentCaseExamId] = useState(null);
   const scrollRef = useRef();
 
   useEffect(() => {
@@ -67,7 +69,25 @@ const Chat = ({ isMicOn, handWashLogs, stage }) => {
     }
   }, [bubbles]);
 
-  const newBubbles = (newData) => {
+  const handleChatResponse = (response) => {
+    // caseExamId 저장
+    if (response?.caseExamId) {
+      setCurrentCaseExamId(response?.caseExamId);
+    }
+
+    // 메시지 처리 - 마지막 메시지만 표시
+    if (response?.messages && response.messages.length > 0) {
+      const lastMessage = response.messages[response.messages.length - 1];
+      const newMessage = {
+        content: lastMessage.content,
+        isUser: lastMessage.sender === "USER",
+      };
+
+      setBubbles((prev) => [...prev, newMessage]);
+    }
+  };
+
+  const newBubbles = async (newData) => {
     // 사용자 메시지 추가
     const userMessage = {
       content: newData.content,
@@ -75,13 +95,31 @@ const Chat = ({ isMicOn, handWashLogs, stage }) => {
     };
     setBubbles((prev) => [...prev, userMessage]);
 
-    // 여기에 나중에 GPT API 호출 로직 추가
-    // 예시: GPT 응답 추가
-    // const gptMessage = {
-    //   content: "GPT 응답...",
-    //   isUser: false,
-    // };
-    // setBubbles(prev => [...prev, gptMessage]);
+    try {
+      // API 요청 데이터 준비
+      const chatData = {
+        memberId: 1, // 하드코딩
+        patientId: 1, // 하드코딩
+        caseExamId: currentCaseExamId, // 첫 요청시 null, 이후 서버에서 받은 값 사용
+        // caseExamId: 11,
+        message: newData.content,
+      };
+      console.log("전송한 채팅 데이터: ", chatData);
+      // API 호출
+      const response = await startChat(
+        chatData?.memberId,
+        chatData?.caseExamId,
+        chatData?.patientId,
+        chatData?.message
+      );
+      console.log("채팅 응답: ", response);
+
+      // 응답 처리
+      handleChatResponse(response);
+    } catch (error) {
+      console.error("채팅 실패:", error);
+      // 에러 처리 UI 추가 가능
+    }
   };
 
   return (
