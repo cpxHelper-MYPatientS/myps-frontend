@@ -7,4 +7,7 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  optimizeDeps: {
+    force: true, // 모든 의존성을 강제로 다시 최적화
+  },
 });
