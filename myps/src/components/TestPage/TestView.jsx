@@ -169,7 +169,7 @@ const TestView = () => {
               className=" h-[15.6875rem] rounded-[0.625rem] object-cover"
             />
           ) : (
-            <div className="w-full h-full bg-cgray-900 rounded-[0.625rem] flex items-center justify-center text-white">
+            <div className="w-full h-full bg-cgray-950 rounded-[0.625rem] flex items-center justify-center text-white">
               카메라가 비활성화되었습니다.
             </div>
           )}

@@ -1,10 +1,11 @@
 import Webcam from "react-webcam";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import clock from "../../assets/testPage/clock.svg";
 import minus from "../../assets/testPage/minus.svg";
 import plus from "../../assets/testPage/plus.svg";
 import mic from "../../assets/testPage/mic.svg";
 import camera from "../../assets/testPage/camera.svg";
+import NoCamera from "../../assets/testPage/video-unavailable.svg";
 import { useTestSetting } from "../context/TestSettingContext";
 import CheckOption from "../common/CheckOption";
 import { startRecording, stopRecording, isRecording } from "./audio/audio";
@@ -81,8 +82,11 @@ const MicSetting = () => {
             className=" h-[25.25rem] rounded-[0.625rem] object-cover"
           />
         ) : (
-          <div className="w-full h-full bg-cgray-100 rounded-[0.625rem] flex items-center justify-center text-cgray-600">
-            카메라가 비활성화되었습니다
+          <div className="w-full h-full bg-cgray-950 rounded-[0.625rem] flex items-center justify-center text-p1 font-medium text-[rgba(217,224,228,0.60)]">
+            <div className="flex flex-col justify-center items-center gap-3.5">
+              <img className="w-10 h-10" src={NoCamera} />
+              카메라가 비활성화되었습니다.
+            </div>
           </div>
         )}
       </div>
