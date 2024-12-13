@@ -1,5 +1,16 @@
 import Symptom from "./Symptom";
 const CaseDetailView = () => {
+  const symptoms = [
+    "급성복통",
+    "소화불량",
+    "만성복통",
+    "토혈",
+    "혈변",
+    "구토",
+    "변비",
+    "설사",
+    "황달",
+  ];
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-center px-5 bg-violet-600 text-p1 text-white font-bold w-[1200px] h-[54px] rounded-[10px]">
@@ -13,20 +24,10 @@ const CaseDetailView = () => {
           문진 완료 환자 수
         </span>
       </div>
-      <div className=" relative flex flex-col gap-3 z-10">
-        {/* z인덱스를 내림차순으로 넣어줘야 함 */}
-        <div key={1} className="relative z-50">
-          <Symptom />
-        </div>
-        <div key={2} className="relative z-40">
-          <Symptom />
-        </div>
-        <div key={3} className="relative z-30">
-          <Symptom />
-        </div>
-        <div key={4} className="relative z-20">
-          <Symptom />
-        </div>
+      <div className="relative flex flex-col gap-3">
+        {symptoms.map((item, index) => (
+          <Symptom key={index} title={item} />
+        ))}
       </div>
     </div>
   );

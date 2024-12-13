@@ -25,6 +25,7 @@ export default {
           300: "#BFCAD1",
           400: "#AFBCC5",
           500: "#8999A8",
+          600: "#778799",
           700: "#6B778A",
           900: "#4B535D",
           950: "#30353B",
@@ -40,6 +41,8 @@ export default {
         gradientRecordText:
           "linear-gradient(90deg, #5039FA -33.33%, #66EDCD 63.81%)",
         gradientChat: "linear-gradient(180deg, #ECF0FF 0%, #FFF 100%)",
+        gradientTestBar:
+          "linear-gradient(90deg, #B7FFEE 0%, #BADDF9 42%, #BCB4FF 100%);",
       },
       fontSize: {
         p1: ["1rem", { lineHeight: "1.5rem" }], //16px / 24px
