@@ -11,7 +11,7 @@ import TestSettingPage from "./pages/TestPage/TestSettingPage.jsx";
 import TestIntroPage from "./pages/TestPage/TestIntroPage.jsx";
 import TestPage from "./pages/TestPage/TestPage.jsx";
 import TestLoadingPage from "./pages/TestPage/TestLoadingPage.jsx";
-import FeedbackPage from "./pages/FeedbackPage/FeedbackPage.jsx";
+// import FeedbackPage from "./pages/FeedbackPage/FeedbackPage.jsx";
 import { TestSettingProvider } from "./components/context/TestSettingContext.jsx";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Route path="/test" element={<TestPage />} />
         </Route>
         <Route path="/test/loading" element={<TestLoadingPage />} />
-        <Route path="/feedback" element={<FeedbackPage />} />
+        {/* <Route path="/feedback" element={<FeedbackPage />} /> */}
       </Routes>
     </Router>
   );
