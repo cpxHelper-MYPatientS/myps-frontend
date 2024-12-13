@@ -8,7 +8,7 @@ import {
   CompletePatientNum,
 } from "./SymptomButton";
 import CompleteRateDetail from "./CompleteRateDetail";
-const Symptom = () => {
+const Symptom = ({ title }) => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isRateHovered, setIsRateHovered] = useState(false);
   const handleToggleClick = () => {
@@ -16,10 +16,10 @@ const Symptom = () => {
   };
 
   return (
-    <div className="relative z-10">
+    <div className="relative">
       <div className="relative z-20 flex items-center px-5 bg-white shadow-custom2 w-[75rem] h-[6.5rem] rounded-[0.625rem]">
         <span className="text-t1 font-bold text-center w-[16.5625rem]">
-          가슴통증
+          {title}
         </span>
         <CheckButton />
         <MakeButton />
@@ -42,7 +42,7 @@ const Symptom = () => {
       </div>
       {/* 토글 겹침 구현 안된 상태  */}
       <div
-        className={`overflow-hidden ${
+        className={`overflow-hidden transition-all duration-500 ${
           isToggleOpen ? "animate-slide-down" : "animate-slide-up"
         }`}
       >
