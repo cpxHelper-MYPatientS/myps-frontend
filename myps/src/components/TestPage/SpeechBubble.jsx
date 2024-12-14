@@ -73,8 +73,8 @@ const SpeechBubble = ({
         );
       case 2:
         return (
-          <div className="flex flex-col justify-start items-center mt-6 gap-5 border-t-2 border-violet-300 w-[45.5625rem] h-[304px]  overflow-y-auto [scrollbar-gutter:stable]">
-            <div className="flex justify-center items-center text-st bg-gradientChat text-violet-300 font-medium w-full h-[64px] flex-shrink-0 backdrop-blur-[0.9375rem]">
+          <div className="flex flex-col justify-start items-center mt-6 gap-5  w-[45.5625rem] h-[304px]  overflow-y-auto [scrollbar-gutter:stable]">
+            <div className="flex justify-center items-center text-st bg-gradientChat border-t-2 border-violet-300 text-violet-300 font-medium w-full h-[64px] flex-shrink-0 backdrop-blur-[0.9375rem]">
               신체 검진 결과 확인
             </div>
             <div className="flex justify-center items-center text-p1 text-cgray-700 text-center">
