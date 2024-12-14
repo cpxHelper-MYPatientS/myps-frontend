@@ -146,7 +146,12 @@ const TestView = () => {
           className="flex justify-center items-end pb-[0.875rem] w-full h-[500px] rounded-tl-bb rounded-tr-bb"
           style={{ backgroundImage: `url(${patientImg})` }}
         >
-          <TestNavBar onHandWash={handleHandWash} formatTime={formatTime} />
+          <TestNavBar
+            onHandWash={handleHandWash}
+            formatTime={formatTime}
+            examTime={examTime}
+            onExamComplete={handleExamComplete}
+          />
         </div>
         {/* 채팅창 들어갈 자리 */}
         <Chat

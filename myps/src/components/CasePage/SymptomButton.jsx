@@ -1,6 +1,9 @@
-const CheckButton = () => {
+const CheckButton = ({ onClick }) => {
   return (
-    <button className="ml-[3.875rem] px-2 py-3 bg-cgray-50 font-medium text-cgray-700 w-[6.1875rem] rounded-[0.3125rem]">
+    <button
+      className="ml-[3.875rem] px-2 py-3 bg-cgray-50 font-medium text-cgray-700 w-[6.1875rem] rounded-[0.3125rem]"
+      onClick={onClick}
+    >
       확인하기
     </button>
   );

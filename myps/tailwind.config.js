@@ -14,6 +14,7 @@ export default {
           10: "#EAEFF8",
           25: "#E9E6FF",
           50: "#ECF0FF",
+          100: "#DCE3FF",
           500: "#5750FF",
           600: "#5039FA",
           700: "#3F25DD",
@@ -74,6 +75,7 @@ export default {
       animation: {
         "slide-down": "slideDown 0.5s ease-in-out", // slideDown 애니메이션을 0.5초로 설정
         "slide-up": "slideUp 0.5s ease-in-out", // slideUp 애니메이션을 0.5초로 설정
+        "slide-up-translate": "slideUpTranslate 0.5s ease-in-out",
       },
       keyframes: {
         slideDown: {
@@ -83,6 +85,10 @@ export default {
         slideUp: {
           "0%": { height: "787px" },
           "100%": { height: "0px" },
+        },
+        slideUpTranslate: {
+          "0%": { transform: "translateY(10%)", opacity: "0.3" },
+          "100%": { transform: "translateY(0%)", opacity: "1" },
         },
       },
     },

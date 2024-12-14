@@ -2,7 +2,7 @@ const SituationInstruction = () => {
   return (
     <div className="flex flex-col items-center gap-5">
       <span className="text-h2 font-bold">
-        24세 남자 김영달씨가 눈이 노랗게 되었다고 병원에 왔다.
+        35세 박민철씨가 배가 아프다고 병원에 왔다.
       </span>
       <div className="flex flex-col items-center gap-3 text-b1 font-medium">
         [활력징후]
