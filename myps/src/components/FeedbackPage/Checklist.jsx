@@ -2,25 +2,26 @@ import { useState } from "react";
 import checkYes from "../../assets/feedbackPage/check-yes.svg";
 import checkNo from "../../assets/feedbackPage/check-no.svg";
 import feebackJson from "../../../public/assets/patientData/subject3/cc10/feedbackList.json";
+import patientJson from "../../../public/assets/patientData/subject3/cc10/patient/patient01.json";
+
 const Checklist = () => {
   const [activeTab, setActiveTab] = useState("전체");
   const data = feebackJson;
-  console.log(data);
+  const bodyData = patientJson;
+
   const tabs = ["전체", "병력청취", "신체검진", "환자교육", "PPI"];
 
   //   status는 시행함/안함 여부 : true면 시행함, false면 시행안함
   const tableData = {
-    // 병력청취: [
-    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
-    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
-    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
-    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
-    // ],
     병력청취: Object.entries(data.병력청취).map(([item, status]) => ({
       item,
       status,
     })),
-    신체검진: [{ item: "생체 징후를 확인하였는가?", status: "" }],
+    // 신체검진: [{ item: "생체 징후를 확인하였는가?", status: "" }],
+    신체검진: Object.entries(bodyData.신체검진).map(([item, status]) => ({
+      item,
+      status,
+    })),
     환자교육: Object.entries(data.환자교육).map(([item, status]) => ({
       item,
       status,

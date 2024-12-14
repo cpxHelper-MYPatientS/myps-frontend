@@ -14,7 +14,8 @@ const FeedbackView = () => {
     <div>
       <div className="flex flex-col gap-3 ">
         <div className="flex items-center justify-between text-cgray-900 text-t1 ">
-          과목명 / 주호소명 / ##세, #성, ####님
+          {/* 과목명 / 주호소명 / ##세, #성, ####님 */}
+          소화기 / 급성복통 / 35세, 남성, 박민철님
           <div className="text-p1 font-medium">
             {/* 셀프캠 다운로드 들어갈 자리  */}
             <div
