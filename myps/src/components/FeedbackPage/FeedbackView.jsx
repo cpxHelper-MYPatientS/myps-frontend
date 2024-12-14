@@ -4,7 +4,12 @@ import Checklist from "./Checklist";
 import SummaryNote from "./SummaryNote";
 import PastChat from "./PastChat";
 import CaseSummary from "./CaseSummary";
+import DefaultModal from "../common/DefaultModal";
+import QuestionInstruction from "../TestPage/QuestionInstruction";
+import useModal from "../../hooks/useModal";
+
 const FeedbackView = () => {
+  const { activeModal, openModal, closeModal } = useModal();
   return (
     <div>
       <div className="flex flex-col gap-3 ">
@@ -12,7 +17,10 @@ const FeedbackView = () => {
           과목명 / 주호소명 / ##세, #성, ####님
           <div className="text-p1 font-medium">
             {/* 셀프캠 다운로드 들어갈 자리  */}
-            <div className="flex items-center px-1 py-3 gap-1 cursor-pointer">
+            <div
+              className="flex items-center px-1 py-3 gap-1 cursor-pointer"
+              onClick={() => openModal("question")}
+            >
               <img className="w-5.5 h-5.5" src={questionIcon} />
               문진 항목
             </div>
@@ -38,6 +46,14 @@ const FeedbackView = () => {
           </div>
         </div>
       </div>
+      {activeModal === "question" && (
+        <DefaultModal
+          onCloseClick={closeModal}
+          width="w-[46.5rem] min-h-[36.1875rem]"
+        >
+          <QuestionInstruction />
+        </DefaultModal>
+      )}
     </div>
   );
 };

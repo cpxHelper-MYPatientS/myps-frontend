@@ -1,6 +1,9 @@
 import { useState } from "react";
 import arrowIcon from "../../assets/casePage/arrow-back.svg";
 import ToggleCase from "./ToggleCase";
+import QuestionInstruction from "../TestPage/QuestionInstruction";
+import DefaultModal from "../common/DefaultModal";
+import useModal from "../../hooks/useModal";
 import {
   CheckButton,
   MakeButton,
@@ -11,6 +14,7 @@ import CompleteRateDetail from "./CompleteRateDetail";
 const Symptom = ({ title }) => {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isRateHovered, setIsRateHovered] = useState(false);
+  const { activeModal, openModal, closeModal } = useModal();
   const handleToggleClick = () => {
     setIsToggleOpen(!isToggleOpen);
   };
@@ -21,7 +25,7 @@ const Symptom = ({ title }) => {
         <span className="text-t1 font-bold text-center w-[16.5625rem]">
           {title}
         </span>
-        <CheckButton />
+        <CheckButton onClick={() => openModal("question")} />
         <MakeButton />
         <div className="relative">
           <CompleteRate onHover={setIsRateHovered} />
@@ -55,6 +59,14 @@ const Symptom = ({ title }) => {
           </div>
         )}
       </div>
+      {activeModal === "question" && (
+        <DefaultModal
+          onCloseClick={closeModal}
+          width="w-[46.5rem] min-h-[36.1875rem]"
+        >
+          <QuestionInstruction />
+        </DefaultModal>
+      )}
     </div>
   );
 };

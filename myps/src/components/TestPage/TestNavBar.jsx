@@ -5,6 +5,7 @@ import hint from "../../assets/testPage/hint.svg";
 import DefaultModal from "../common/DefaultModal";
 import useModal from "../../hooks/useModal";
 import SituationInstruction from "./SituationInstruction";
+import QuestionInstruction from "./QuestionInstruction";
 
 const TestNavBar = ({ onHandWash, formatTime }) => {
   const [showTimer, setShowTimer] = useState(false);
@@ -77,11 +78,18 @@ const TestNavBar = ({ onHandWash, formatTime }) => {
         )}
       </div>
       {activeModal === "situation" && (
-        <DefaultModal onCloseClick={closeModal} width="w-[990px]">
+        <DefaultModal onCloseClick={closeModal} width="w-[61.875rem]">
           <SituationInstruction />
         </DefaultModal>
       )}
-      {activeModal === "hint" && <DefaultModal onCloseClick={closeModal} />}
+      {activeModal === "hint" && (
+        <DefaultModal
+          onCloseClick={closeModal}
+          width="w-[46.5rem] min-h-[36.1875rem]"
+        >
+          <QuestionInstruction />
+        </DefaultModal>
+      )}
     </>
   );
 };
