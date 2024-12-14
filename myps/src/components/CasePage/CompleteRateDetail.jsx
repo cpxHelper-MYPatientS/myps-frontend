@@ -6,7 +6,7 @@ const CompleteRateDetail = () => {
     { title: "PPI", percent: "50" },
   ];
   return (
-    <div className="absolute flex flex-col items-center gap-5 p-6 border border-violet-200 bg-white shadow-custom3 rounded-[0.625rem]">
+    <div className="absolute flex flex-col items-center gap-5 p-6 border border-violet-200 bg-white shadow-custom3 rounded-[0.625rem] z-50">
       <div className="text-b2 font-bold">
         유저 평균 달성률 <span className="text-violet-600">[60%]</span>
       </div>

@@ -21,7 +21,7 @@ const Symptom = ({ title }) => {
 
   return (
     <div className="relative">
-      <div className="relative z-20 flex items-center px-5 bg-white shadow-custom2 w-[75rem] h-[6.5rem] rounded-[0.625rem]">
+      <div className="relative flex items-center px-5 bg-white shadow-custom2 w-[75rem] h-[6.5rem] rounded-[0.625rem]">
         <span className="text-t1 font-bold text-center w-[16.5625rem]">
           {title}
         </span>
@@ -30,7 +30,7 @@ const Symptom = ({ title }) => {
         <div className="relative">
           <CompleteRate onHover={setIsRateHovered} />
           {isRateHovered && (
-            <div className="absolute top-14 left-[-5rem]">
+            <div className="absolute top-14 left-[-5rem] z-30">
               <CompleteRateDetail isHovered={isRateHovered} />
             </div>
           )}
