@@ -7,20 +7,27 @@ import useModal from "../../hooks/useModal";
 import SituationInstruction from "./SituationInstruction";
 import QuestionInstruction from "./QuestionInstruction";
 
-const TestNavBar = ({ onHandWash, formatTime }) => {
+const TestNavBar = ({ onHandWash, formatTime, examTime, onExamComplete }) => {
   const [showTimer, setShowTimer] = useState(false);
-  const [elapsedTime, setElapsedTime] = useState(0); // 경과 시간 저장
+  const [elapsedTime, setElapsedTime] = useState(0);
   const { activeModal, openModal, closeModal } = useModal();
 
-  // 시간재는 함수
-  // 컴포넌트가 마운트될 때 타이머 시작
+  // 시간 체크 및 종료 처리를 위한 useEffect
   useEffect(() => {
     const interval = setInterval(() => {
-      setElapsedTime((prev) => prev + 1);
+      setElapsedTime((prev) => {
+        const newTime = prev + 1;
+        // examTime에 도달하면 시험 종료
+        if (newTime >= examTime * 60) {
+          clearInterval(interval);
+          onExamComplete();
+        }
+        return newTime;
+      });
     }, 1000);
-    // 컴포넌트가 언마운트될 때 타이머 정리
+
     return () => clearInterval(interval);
-  }, []);
+  }, [examTime, onExamComplete]);
 
   const activities = [
     {
@@ -54,6 +61,7 @@ const TestNavBar = ({ onHandWash, formatTime }) => {
       },
     },
   ];
+
   return (
     <>
       <div className="relative flex justify-between items-center px-9 py-3 border bg-nav border-nav shadow-custom4 backdrop-blur-[1.1719rem] w-[43.375rem] h-16 rounded-bb">
@@ -93,4 +101,5 @@ const TestNavBar = ({ onHandWash, formatTime }) => {
     </>
   );
 };
+
 export default TestNavBar;
