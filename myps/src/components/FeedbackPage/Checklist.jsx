@@ -1,40 +1,34 @@
 import { useState } from "react";
 import checkYes from "../../assets/feedbackPage/check-yes.svg";
 import checkNo from "../../assets/feedbackPage/check-no.svg";
+import feebackJson from "../../../public/assets/patientData/subject3/cc10/feedbackList.json";
 const Checklist = () => {
   const [activeTab, setActiveTab] = useState("전체");
-
+  const data = feebackJson;
+  console.log(data);
   const tabs = ["전체", "병력청취", "신체검진", "환자교육", "PPI"];
 
   //   status는 시행함/안함 여부 : true면 시행함, false면 시행안함
   const tableData = {
-    병력청취: [
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-      { item: "복통 발생 시기를 확인하였는가?", status: "" },
-    ],
+    // 병력청취: [
+    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
+    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
+    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
+    //   { item: "복통 발생 시기를 확인하였는가?", status: "" },
+    // ],
+    병력청취: Object.entries(data.병력청취).map(([item, status]) => ({
+      item,
+      status,
+    })),
     신체검진: [{ item: "생체 징후를 확인하였는가?", status: "" }],
-    환자교육: [
-      {
-        item: "수술적 치료가 필요한 경우 금식 또는 입원에 대해 설명하였는가",
-        status: true,
-      },
-      {
-        item: "수술적 치료가 필요한 경우 금식 또는 입원에 대해 설명하였는가",
-        status: true,
-      },
-    ],
-    PPI: [
-      { item: "환자의 의심되는 진단명을 설명하였다.", status: "" },
-      { item: "환자의 의심되는 진단명을 설명하였다.", status: "" },
-    ],
+    환자교육: Object.entries(data.환자교육).map(([item, status]) => ({
+      item,
+      status,
+    })),
+    PPI: Object.entries(data.PPI).map(([item, status]) => ({
+      item,
+      status,
+    })),
   };
 
   return (
@@ -90,7 +84,7 @@ const Checklist = () => {
                     )}
                     {items.map((row, index) => (
                       <tr className="h-9" key={`${category}-${index}`}>
-                        <td className="border text-p3 font-normal px-3 ">
+                        <td className="border text-p3 font-normal px-3 break-words whitespace-normal ">
                           {row.item}
                         </td>
                         <td className="border px-3  text-center">
@@ -111,7 +105,7 @@ const Checklist = () => {
                 ))
               : tableData[activeTab].map((row, index) => (
                   <tr className="h-9" key={index}>
-                    <td className="border text-p3 font-normal px-3 ">
+                    <td className="border text-p3 font-normal px-3 break-words whitespace-normal ">
                       {row.item}
                     </td>
                     <td className="border px-3 text-center">

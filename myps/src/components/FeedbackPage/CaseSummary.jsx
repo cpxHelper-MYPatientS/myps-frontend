@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import ToggleNote from "./ToggleNote";
 const CaseSummary = () => {
   const relatedDiseases = [
@@ -23,13 +24,14 @@ const CaseSummary = () => {
       title="CASE 요약"
       description="문진하지 않은 정보가 있는지 확인해보세요"
     >
+      {/* console.log(patientData); */}
       <div className="flex flex-col gap-3 bg-background">
         {/* 감별진단 후보 */}
         <div className="flex flex-col gap-2 text-p2 ">
-          <div className="px-2 py-1  bg-violet-50 rounded-[0.25rem]">
+          <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             감별진단 후보
           </div>
-          <div className="flex flex-col px-4 gap-2 font-bold ">
+          <div className="flex flex-col px-4 gap-2 text-p3 ">
             <span>1.</span>
             <span>2.</span>
             <span>3.</span>
@@ -37,10 +39,10 @@ const CaseSummary = () => {
         </div>
         {/* 검사계획 후보 */}
         <div className="flex flex-col gap-2 text-p2 ">
-          <div className="px-2 py-1  bg-violet-50 rounded-[0.25rem]">
+          <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             검사계획 후보
           </div>
-          <div className="flex flex-col px-4 gap-2 font-bold ">
+          <div className="flex flex-col px-4 gap-2 text-p3">
             <span>1.</span>
             <span>2.</span>
             <span>3.</span>
@@ -48,10 +50,10 @@ const CaseSummary = () => {
         </div>
         {/* 검사계획 후보 */}
         <div className="flex flex-col gap-2 text-p2 ">
-          <div className="px-2 py-1  bg-violet-50 rounded-[0.25rem]">
+          <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             치료계획 후보
           </div>
-          <div className="flex flex-col px-4 gap-2 font-bold ">
+          <div className="flex flex-col px-4 gap-2 text-p3">
             <span>1.</span>
             <span>2.</span>
             <span>3.</span>
@@ -59,34 +61,34 @@ const CaseSummary = () => {
         </div>
         {/* 기본 환자 정보 */}
         <div className="flex flex-col gap-2 text-p2 ">
-          <div className="px-2 py-1  bg-violet-50 rounded-[0.25rem]">
+          <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             기본 환자 정보
           </div>
           <div className="flex flex-col px-4 gap-2 font-bold ">
-            <span className="flex justify-between">
-              • 이름/성별
+            <span className="flex gap-10">
+              <span className="w-[6.25rem]">• 이름/성별</span>
               <span className="font-light w-[180px]">박민철/남성</span>
             </span>
-            <span className="flex justify-between">
-              • 생년월일
+            <span className="flex gap-10">
+              <span className="w-[6.25rem]">• 생년월일</span>
               <span className="font-light w-[180px]">1990년 05월 13일</span>
             </span>
-            <span className="flex justify-between">
-              • 방문 이유
+            <span className="flex gap-10">
+              <span className="w-[6.25rem]">• 방문 이유</span>
               <span className="font-light w-[180px]">배가 너무 아파서</span>
             </span>
           </div>
         </div>
         {/* 주호소 관련 병력 */}
         <div className="flex flex-col gap-2 text-p2 ">
-          <div className="px-2 py-1  bg-violet-50 rounded-[0.25rem]">
+          <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             주호소 관련 병력
           </div>
           <div className="flex flex-col px-4 gap-2 font-bold">
             {relatedDiseases.map((item, index) => (
-              <span key={index} className="flex justify-between">
-                • {item.title}
-                <span className="font-light break-words whitespace-normal  w-[180px]">
+              <span key={index} className="flex gap-10">
+                <span className="w-[6.25rem]">• {item.title}</span>
+                <span className="font-light break-words whitespace-normal  ">
                   {item.content}
                 </span>
               </span>
