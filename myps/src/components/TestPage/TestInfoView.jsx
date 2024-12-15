@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import useSound from "use-sound";
+import testStartAudio from "../../../public/assets/testAudio/testStart.mp3";
 import ProgressBar from "./ProgressBar";
 import SituationInstruction from "./SituationInstruction";
 const TestInfoView = () => {
   const navigate = useNavigate();
+  // const [playTestStart] = useSound(testStartAudio);
   const handleSkipClick = () => {
     navigate(`/test`);
+    // playTestStart();
   };
   return (
     <div className="flex flex-col justify-center items-center bg-white shadow-custom2 w-[75rem] h-[46.5625rem] rounded-bb">
