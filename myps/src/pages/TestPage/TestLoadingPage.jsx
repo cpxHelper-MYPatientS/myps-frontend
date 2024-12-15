@@ -49,14 +49,9 @@ const TestLoadingPage = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full">
       <div className="flex flex-col justify-between items-center p-[3.75rem] bg-white shadow-custom2 w-[1200px] h-[634px] rounded-bb">
-        <div className="flex flex-col gap-[60px] items-center">
-          <div className="flex flex-col items-center gap-3">
-            <div className="text-t1 font-bold">
-              이도연 선생님, 문진하느라 수고하셨습니다.
-            </div>
-            <div className="text-cgray-700 text-p1">
-              기다리는 동안, 스스로의 진료가 어땠는지 돌이켜보세요!
-            </div>
+        <div className="flex flex-col gap-[64px] items-center">
+          <div className="flex items-center text-t1 font-bold">
+            이도연 선생님, 문진하느라 수고하셨습니다.
           </div>
           <div className="flex flex-col items-center gap-8">
             <div className="flex flex-col items-center w-[124px] h-[124px]">
@@ -70,8 +65,11 @@ const TestLoadingPage = () => {
             <div> </div>
           </div>
         </div>
-        <div className="px-7 py-8 bg-background text-cgray-700 text-p1 text-center w-full rounded-bb overflow-hidden relative h-[80px] flex items-center justify-center">
-          <div key={key} className="animate-slide-up-translate absolute w-fit">
+        <div className="flex flex-col items-center justify-center px-7 py-8 gap-2 bg-background text-cgray-700 text-b2 font-medium text-center w-full rounded-bb overflow-hidden">
+          <div className="text-cgray-400 text-p2">
+            기다리는 동안, 스스로의 진료가 어땠는지 돌이켜보세요!
+          </div>
+          <div key={key} className="animate-slide-up-translate w-fit">
             {currentMessage}
           </div>
         </div>

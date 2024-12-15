@@ -37,11 +37,11 @@ const Checklist = () => {
       <div className="text-xl mb-4">체크리스트</div>
 
       {/* 탭 버튼들 */}
-      <div className="flex gap-2 ">
+      <div className="flex gap-4">
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`px-2 py-1 text-b2 mr-11 ${
+            className={`px-2 py-1 text-b2 ${
               activeTab === tab
                 ? "border-b-2 border-violet-500 text-violet-600"
                 : "text-cgray-500 font-normal"
@@ -57,7 +57,7 @@ const Checklist = () => {
       <div className="">
         <table className="w-full">
           <thead>
-            <tr className=" h-9">
+            <tr className=" h-10">
               <th className="border bg-violet-100 text-p1 px-3 text-left border-rounded-t-aa rounded-t-aa">
                 {activeTab === "전체" ? "병력청취" : activeTab}
               </th>
@@ -74,18 +74,18 @@ const Checklist = () => {
               ? Object.entries(tableData).map(([category, items]) => (
                   <>
                     {category !== "병력청취" && (
-                      <tr className="h-9" key={`category-${category}`}>
+                      <tr className="h-10" key={`category-${category}`}>
                         <td
                           colSpan="3"
-                          className="border bg-violet-100 text-p1 px-3 font-bold h-9"
+                          className="border bg-violet-100 text-p1 px-3 font-bold h-10"
                         >
                           {category}
                         </td>
                       </tr>
                     )}
                     {items.map((row, index) => (
-                      <tr className="h-9" key={`${category}-${index}`}>
-                        <td className="border text-p3 font-normal px-3 break-words whitespace-normal ">
+                      <tr className="h-10" key={`${category}-${index}`}>
+                        <td className="border text-p1 text-b font-normal px-3 break-words whitespace-normal ">
                           {row.item}
                         </td>
                         <td className="border px-3  text-center">
@@ -105,8 +105,8 @@ const Checklist = () => {
                   </>
                 ))
               : tableData[activeTab].map((row, index) => (
-                  <tr className="h-9" key={index}>
-                    <td className="border text-p3 font-normal px-3 break-words whitespace-normal ">
+                  <tr className="h-10" key={index}>
+                    <td className="border text-p1 text-b font-normal px-3 break-words whitespace-normal ">
                       {row.item}
                     </td>
                     <td className="border px-3 text-center">

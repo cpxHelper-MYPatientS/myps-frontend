@@ -21,7 +21,7 @@ const Symptom = ({ title }) => {
 
   return (
     <div className="relative">
-      <div className="relative flex items-center px-5 bg-white shadow-custom2 w-[75rem] h-[6.5rem] rounded-[0.625rem]">
+      <div className="relative flex items-center px-5 py-8 bg-white shadow-custom2 w-[75rem] h-[6.5rem] rounded-[0.625rem]">
         <span className="text-t1 font-bold text-center w-[16.5625rem]">
           {title}
         </span>
@@ -51,7 +51,7 @@ const Symptom = ({ title }) => {
         }`}
       >
         {isToggleOpen && (
-          <div className="flex flex-col justify-end px-7 py-10 bg-white shadow-custom2 border-t border-gray-200 w-[75rem] h-[49.1875rem] rounded-[0.625rem]">
+          <div className="flex flex-col justify-end mt-2 px-7 py-10 bg-white shadow-custom2 border-t border-gray-200 w-[75rem] h-[49.1875rem] rounded-[0.625rem]">
             <div className="flex gap-7">
               <ToggleCase isDefault={true} />
               <ToggleCase isDefault={false} />
