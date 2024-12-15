@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import paper from "../../assets/testPage/test-paper.svg";
 import NavBar from "../../components/common/NavBar";
 import IntroHeader from "../../components/TestPage/IntroHeader";

@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 // import userVideo from "../../assets/testPage/user-image.png";
+import useSound from "use-sound";
 import token from "../../assets/common/token.svg";
+import testIntroAudio from "../../../public/assets/testAudio/testIntro.mp3";
+
 import MicSetting from "./MicSetting";
 const TestSetting = () => {
   const navigate = useNavigate();
+  // const [playTestIntro] = useSound(testIntroAudio);
 
   const handleTestClick = () => {
     navigate(`/test/intro`);
+    // playTestIntro();
   };
   return (
     <div className="flex flex-col justify-center items-center px-11 py-4 gap-9 bg-white shadow-custom2 w-[75rem] h-[46.625rem] rounded-bb">

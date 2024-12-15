@@ -10,6 +10,7 @@ import QuestionInstruction from "./QuestionInstruction";
 const TestNavBar = ({ onHandWash, formatTime, examTime, onExamComplete }) => {
   const [showTimer, setShowTimer] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [isWarningTime, setIsWarningTime] = useState(false);
   const { activeModal, openModal, closeModal } = useModal();
 
   // 시간 체크 및 종료 처리를 위한 useEffect
@@ -17,6 +18,18 @@ const TestNavBar = ({ onHandWash, formatTime, examTime, onExamComplete }) => {
     const interval = setInterval(() => {
       setElapsedTime((prev) => {
         const newTime = prev + 1;
+        const remainingTime = examTime * 60 - newTime;
+        console.log(remainingTime);
+        // 2분(120초) 또는 5초 남았을 때 타이머 표시
+        if (remainingTime === 120 || remainingTime === 5) {
+          setShowTimer(true);
+          setIsWarningTime(true);
+          setTimeout(() => {
+            setShowTimer(false);
+            setIsWarningTime(false);
+          }, 5000);
+        }
+
         // examTime에 도달하면 시험 종료
         if (newTime >= examTime * 60) {
           clearInterval(interval);
@@ -80,7 +93,11 @@ const TestNavBar = ({ onHandWash, formatTime, examTime, onExamComplete }) => {
           </div>
         ))}
         {showTimer && (
-          <div className="absolute top-[-70px] left-1/2 px-9 py-3 transform -translate-x-1/2 bg-nav border border-nav shadow-custom4 backdrop-blur-[18.75px] text-white text-b1 rounded-bb">
+          <div
+            className={`absolute top-[-70px] left-1/2 px-9 py-3 transform -translate-x-1/2 bg-nav border border-nav shadow-custom4 backdrop-blur-[18.75px] ${
+              isWarningTime ? "text-red-500" : "text-white"
+            } text-b1 rounded-bb`}
+          >
             소요시간 {formatTime(elapsedTime)}
           </div>
         )}
