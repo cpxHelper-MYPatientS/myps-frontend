@@ -38,15 +38,14 @@ const NavBar = ({ isMain = true }) => {
           {isMain ? (
             ""
           ) : (
-            <div className="flex gap-[3.25rem]">
+            <div className="flex gap-4">
               {Addedcategories.map((category, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-1 font-medium cursor-pointer"
+                  className="flex items-center px-4 cursor-pointer"
                   onClick={category.onClick}
                 >
-                  <img src={category.img} />
-                  <div>{category.text}</div>
+                  {category.text}
                 </div>
               ))}
             </div>
@@ -54,7 +53,10 @@ const NavBar = ({ isMain = true }) => {
         </div>
         <div className="flex gap-5">
           {categories.map((category, index) => (
-            <div key={index} className="flex items-center gap-1 cursor-pointer">
+            <div
+              key={index}
+              className="flex items-center gap-1 text-cgray-800 cursor-pointer"
+            >
               <img src={category.img} />
               <div>{category.text}</div>
             </div>

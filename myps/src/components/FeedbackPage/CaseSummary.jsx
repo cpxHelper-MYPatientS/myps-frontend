@@ -15,7 +15,7 @@ const CaseSummary = () => {
           <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             감별진단 후보
           </div>
-          <div className="flex flex-col px-4 gap-2 text-p3 ">
+          <div className="flex flex-col px-4 gap-2 text-p2 ">
             {data["감별진단 후보"].map((item, index) => (
               <span key={index}>
                 {index + 1}. {item}
@@ -28,7 +28,7 @@ const CaseSummary = () => {
           <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             검사계획 후보
           </div>
-          <div className="flex flex-col px-4 gap-2 text-p3">
+          <div className="flex flex-col px-4 gap-2 text-p2">
             {data["검사계획 후보"].map((item, index) => (
               <span key={index}>
                 {index + 1}. {item}
@@ -41,7 +41,7 @@ const CaseSummary = () => {
           <div className="px-2 py-1  bg-violet-50 text-violet-900 font-medium rounded-[0.25rem]">
             치료계획 후보
           </div>
-          <div className="flex flex-col px-4 gap-2 text-p3">
+          <div className="flex flex-col px-4 gap-2 text-p2">
             {data["치료계획 후보"].map((item, index) => (
               <span key={index}>
                 {index + 1}. {item}

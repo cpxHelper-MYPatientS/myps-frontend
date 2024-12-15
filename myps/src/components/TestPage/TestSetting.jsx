@@ -11,7 +11,8 @@ const TestSetting = () => {
   return (
     <div className="flex flex-col justify-center items-center px-11 py-4 gap-9 bg-white shadow-custom2 w-[75rem] h-[46.625rem] rounded-bb">
       <div className="py-2 text-t1 font-bold h-13">
-        과목명 / 주호소명 / ##세, #성, ####님
+        {/* 과목명 / 주호소명 / ##세, #성, ####님 */}
+        소화기 / 급성복통 / 35세, 남성, 박민철님
       </div>
       <div className="flex items-start gap-10">
         {/* <img className="h-[25.25rem] rounded-[0.625rem]" src={userVideo} /> */}

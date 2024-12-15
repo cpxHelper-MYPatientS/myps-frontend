@@ -32,15 +32,20 @@ const Chat = ({ isMicOn, handWashLogs, stage }) => {
             stepType: 1,
             // step1에 필요한 추가 속성
           };
-          setBubbles((prev) => [...prev, stepBubble]);
+          setBubbles([stepBubble]);
           break;
         case 2:
           stepBubble = {
             ...stepBubble,
             stepType: 2,
-            // step2에 필요한 추가 속성
           };
-          setBubbles((prev) => [stepBubble]);
+          setBubbles([stepBubble]);
+          // stage 2로 처음 진입할 때만 스크롤을 맨 위로
+          setTimeout(() => {
+            if (scrollRef.current) {
+              scrollRef.current.scrollTop = 0;
+            }
+          }, 0);
           break;
         case 3:
           stepBubble = {

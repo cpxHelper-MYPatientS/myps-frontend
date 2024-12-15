@@ -1,7 +1,7 @@
 const NoCase = ({ fontSize }) => {
   return (
     <div
-      className={`flex justify-center items-center p-2.5 border border-cgray-100 bg-background ${fontSize} text-cgray-700 font-medium h-full rounded-[0.625rem]`}
+      className={`flex justify-center items-center p-2.5 border border-cgray-100 bg-cgray-50 font-normal ${fontSize} text-[#88898B] h-full rounded-[0.625rem]`}
     >
       직접 만든 CASE가 아직 없습니다.
       <br />

@@ -61,7 +61,7 @@ const SpeechBubble = ({
     switch (stepType) {
       case 1:
         return (
-          <div className="flex flex-col justify-start items-center mb-10 gap-7 border-t-2 border-violet-300 w-[45.5625rem]">
+          <div className="flex flex-col justify-start items-center mb-[166px] gap-7 border-t-2 border-violet-300 w-[45.5625rem]">
             <div className="flex justify-center items-center text-st bg-gradientChat text-violet-300  font-medium w-full h-16 backdrop-blur-[0.9375rem]">
               신체 검진
             </div>
@@ -73,36 +73,38 @@ const SpeechBubble = ({
         );
       case 2:
         return (
-          <div className="flex flex-col justify-start items-center mt-6 gap-5  w-[45.5625rem] h-[304px]  overflow-y-auto [scrollbar-gutter:stable]">
-            <div className="flex justify-center items-center text-st bg-gradientChat border-t-2 border-violet-300 text-violet-300 font-medium w-full h-[64px] flex-shrink-0 backdrop-blur-[0.9375rem]">
-              신체 검진 결과 확인
-            </div>
-            <div className="flex justify-center items-center text-p1 text-cgray-700 text-center">
-              미처 시행하지 못한 신체 검진은 체크해보세요
-              <br />
-              피드백 때 상기시켜드립니다.
-            </div>
-            {/* 신체검진 항목  */}
-            <div className="flex flex-col gap-3">
-              {checkItems.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => handleCheck(item)}
-                  className="flex justify-center items-start gap-3.5 text-p1 text-cgray-500 text-center break-words whitespace-normal max-w-[600px] cursor-pointer"
-                >
-                  <img
-                    src={checkedItems.includes(item) ? checkYes : checkNo}
-                    alt="체크 표시"
-                  />
-                  <span>{item}</span>
-                </div>
-              ))}
+          <div className="flex flex-col justify-start items-center gap-5 w-[45.5625rem]">
+            <div className="flex flex-col justify-start mt-3 items-center gap-5 w-full">
+              <div className="flex justify-center items-center text-st bg-gradientChat border-t-2 border-violet-300 text-violet-300 font-medium w-full h-[64px] flex-shrink-0 backdrop-blur-[0.9375rem]">
+                신체 검진 결과 확인
+              </div>
+              <div className="flex justify-center items-center text-p1 text-cgray-700 text-center">
+                미처 시행하지 못한 신체 검진은 체크해보세요
+                <br />
+                피드백 때 상기시켜드립니다.
+              </div>
+              {/* 신체검진 항목  */}
+              <div className="flex flex-col gap-3">
+                {checkItems.map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleCheck(item)}
+                    className="flex justify-center items-start gap-3.5 text-p1 text-cgray-500 text-center break-words whitespace-normal max-w-[600px] cursor-pointer"
+                  >
+                    <img
+                      src={checkedItems.includes(item) ? checkYes : checkNo}
+                      alt="체크 표시"
+                    />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         );
       case 3:
         return (
-          <div className="flex flex-col justify-start items-center mt-6 mb-[130px] gap-7 border-t-2 border-violet-300 w-[45.5625rem] ">
+          <div className="flex flex-col justify-start items-center mt-2 mb-[142px] gap-7 border-t-2 border-violet-300 w-[45.5625rem] ">
             <div className="flex justify-center mb-5 items-center text-st bg-gradientChat text-violet-300  font-medium w-full h-16 backdrop-blur-[0.9375rem]">
               환자 교육
             </div>

@@ -51,12 +51,12 @@ const PastChat = () => {
         {chatHistory.map((message, index) => (
           <div
             key={index}
-            className={`mb-4 ${
+            className={`mb-3 ${
               message.sender === "user" ? "text-right" : "text-left"
             }`}
           >
             <div
-              className={`inline-block max-w-[275px] px-4 py-3 text-p1 rounded-t-bb break-words whitespace-normal ${
+              className={`inline-block max-w-[330px] px-4 py-3 text-p1 rounded-t-bb break-words whitespace-normal ${
                 message.sender === "user"
                   ? "bg-violet-50 text-violet-600 rounded-bl-bb"
                   : "bg-white rounded-br-bb"

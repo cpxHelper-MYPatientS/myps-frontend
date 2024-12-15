@@ -24,7 +24,7 @@ const CaseDetailView = () => {
           문진 완료 환자 수
         </span>
       </div>
-      <div className="relative flex flex-col gap-3">
+      <div className="relative flex flex-col gap-4">
         {symptoms.map((item, index) => (
           <Symptom key={index} title={item} />
         ))}
