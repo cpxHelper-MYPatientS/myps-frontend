@@ -3,7 +3,7 @@ import SpeechBubble from "./SpeechBubble";
 import ChatInput from "./ChatInput";
 import { startChat } from "../../api/chat";
 
-const Chat = ({ isMicOn, handWashLogs, stage }) => {
+const Chat = ({ isMicOn, handWashLogs, stage, onCaseExamIdChange }) => {
   const [bubbles, setBubbles] = useState([]);
   const [currentCaseExamId, setCurrentCaseExamId] = useState(null);
   const scrollRef = useRef();
@@ -78,6 +78,7 @@ const Chat = ({ isMicOn, handWashLogs, stage }) => {
     // caseExamId 저장
     if (response?.caseExamId) {
       setCurrentCaseExamId(response?.caseExamId);
+      onCaseExamIdChange(response?.caseExamId);
     }
 
     // 메시지 처리 - 마지막 메시지만 표시

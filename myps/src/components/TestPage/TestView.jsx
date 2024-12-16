@@ -31,6 +31,7 @@ const TestView = () => {
     useTestSetting();
   const [handWashLogs, setHandWashLogs] = useState([]);
   const [examStep, setExamStep] = useState(0);
+  const [currentCaseExamId, setCurrentCaseExamId] = useState(null);
 
   // 검진 단계별 버튼 텍스트와 채팅 메시지
   const examSteps = [
@@ -118,10 +119,12 @@ const TestView = () => {
     setExamStep((prev) => prev + 1);
   };
 
+  const handleCaseExamIdChange = (id) => {
+    setCurrentCaseExamId(id);
+  };
+
   const handleExamComplete = () => {
-    // 시험 종료 시 필요한 로직
-    console.log("시험 종료");
-    navigate(`/test/loading`);
+    navigate(`/test/loading`, { state: { caseExamId: currentCaseExamId } });
   };
 
   // 컴포넌트 마운트 시 마이크 상태 확인 및 초기화
@@ -159,6 +162,7 @@ const TestView = () => {
           handWashLogs={handWashLogs}
           formatTime={formatTime}
           stage={examStep}
+          onCaseExamIdChange={handleCaseExamIdChange}
         />
       </div>
       {/* 오른쪽 창 */}
