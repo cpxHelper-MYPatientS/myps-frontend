@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Spinner from "../../assets/common/loading.gif";
-
+import { getChecklist } from "../../api/chat";
 const messages = [
   "면담의 시간은 10~12분으로 적절하였나요?",
   "문진 시작과 끝, 신체 진찰 전후로 손소독을 시행하였나요?",
@@ -27,16 +28,32 @@ const messages = [
 ];
 
 const TestLoadingPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { caseExamId } = location.state || {};
   const [currentMessage, setCurrentMessage] = useState(messages[0]);
   const [nextMessage, setNextMessage] = useState("");
   const [key, setKey] = useState(0);
+  const [usedMessages, setUsedMessages] = useState([messages[0]]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       let newMessage;
-      do {
-        newMessage = messages[Math.floor(Math.random() * messages.length)];
-      } while (newMessage === currentMessage);
+
+      // 아직 모든 메시지를 사용하지 않은 경우
+      if (usedMessages.length < messages.length) {
+        do {
+          newMessage = messages[Math.floor(Math.random() * messages.length)];
+        } while (usedMessages.includes(newMessage));
+
+        setUsedMessages((prev) => [...prev, newMessage]);
+      }
+      // 모든 메시지를 한 번씩 사용한 경우
+      else {
+        do {
+          newMessage = messages[Math.floor(Math.random() * messages.length)];
+        } while (newMessage === currentMessage);
+      }
 
       setNextMessage(newMessage);
       setCurrentMessage(newMessage);
@@ -44,7 +61,24 @@ const TestLoadingPage = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [currentMessage]);
+  }, [currentMessage, usedMessages]);
+
+  useEffect(() => {
+    const fetchChecklist = async () => {
+      try {
+        console.log("케이스 아이디", caseExamId);
+        const checklistData = await getChecklist(caseExamId);
+        sessionStorage.setItem("checklistData", JSON.stringify(checklistData));
+        navigate("/feedback");
+        console.log("checklist 조회", checklistData);
+      } catch (error) {
+        console.error("체크리스트 데이터 가져오기 실패:", error);
+        // 에러 처리 로직 추가 가능
+      }
+    };
+
+    fetchChecklist();
+  }, [caseExamId, navigate]);
 
   return (
     <div className="flex flex-col items-center justify-center h-full">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import checkYes from "../../assets/feedbackPage/check-yes.svg";
 import checkNo from "../../assets/feedbackPage/check-no.svg";
 import feebackJson from "../../../public/assets/patientData/subject3/cc10/feedbackList.json";
@@ -6,27 +6,42 @@ import patientJson from "../../../public/assets/patientData/subject3/cc10/patien
 
 const Checklist = () => {
   const [activeTab, setActiveTab] = useState("전체");
-  const data = feebackJson;
+  //   const data = feebackJson;
   const bodyData = patientJson;
+  const [checklistData, setChecklistData] = useState(null);
+
+  useEffect(() => {
+    const savedData = sessionStorage.getItem("checklistData");
+    if (savedData) {
+      setChecklistData(JSON.parse(savedData));
+    }
+  }, []);
+
+  if (!checklistData) return <div>로딩중...</div>;
 
   const tabs = ["전체", "병력청취", "신체검진", "환자교육", "PPI"];
 
   //   status는 시행함/안함 여부 : true면 시행함, false면 시행안함
   const tableData = {
-    병력청취: Object.entries(data.병력청취).map(([item, status]) => ({
+    병력청취: Object.entries(
+      checklistData.categories.find((cat) => cat.category === "병력청취").items
+    ).map(([item, status]) => ({
       item,
       status,
     })),
-    // 신체검진: [{ item: "생체 징후를 확인하였는가?", status: "" }],
     신체검진: Object.entries(bodyData.신체검진).map(([item, status]) => ({
       item,
       status,
     })),
-    환자교육: Object.entries(data.환자교육).map(([item, status]) => ({
+    환자교육: Object.entries(
+      checklistData.categories.find((cat) => cat.category === "환자교육").items
+    ).map(([item, status]) => ({
       item,
       status,
     })),
-    PPI: Object.entries(data.PPI).map(([item, status]) => ({
+    PPI: Object.entries(
+      checklistData.categories.find((cat) => cat.category === "PPI").items
+    ).map(([item, status]) => ({
       item,
       status,
     })),
