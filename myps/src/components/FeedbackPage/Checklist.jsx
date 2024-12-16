@@ -29,6 +29,7 @@ const Checklist = () => {
       item,
       status,
     })),
+    // 신체검진: [{ item: "생체 징후를 확인하였는가?", status: "" }],
     신체검진: Object.entries(bodyData.신체검진).map(([item, status]) => ({
       item,
       status,
