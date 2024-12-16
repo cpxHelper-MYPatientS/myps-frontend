@@ -14,12 +14,11 @@ const SpeechBubble = ({
   const [checkedItems, setCheckedItems] = useState([]);
 
   const checkItems = [
-    "팔, 다리 시진 |  허벅지와 정강이에 5cm의 엷은멍(+)",
     "눈 |  결막: 빈혈 (-), 공막: 황달 (-)",
     "복부 진찰  |  시진 : 덩이 (-), 복수 (-), 외상 (-) / 청진 : 정상 장음 / 타진 : 정상 / 촉진 : 오른쪽 윗배 압통/반발압통(+/+)",
     "충수돌기염 검사 | obturator sign (-)",
     "murphy sign 검사 |	murphy sign (+)",
-    "cvat 검사	늑골 척주각 압통 (+) ",
+    "cvat 검사	늑골 척주각 압통 (-) ",
     // 필요한 만큼 항목 추가
   ];
 
