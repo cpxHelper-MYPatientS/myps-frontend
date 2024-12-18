@@ -38,7 +38,7 @@ const TestIntroPage = () => {
           isNavBarVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <NavBar isMain={false} />
+        <NavBar isMain={false} selectedMenu="CASE 연습" />
       </div>
       <div className="flex flex-col gap-6 mt-[9.375rem] mx-[22.5rem]">
         <IntroHeader title="상황 지침 확인하기" imgSrc={paper} />

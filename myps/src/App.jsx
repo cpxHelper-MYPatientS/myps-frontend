@@ -12,6 +12,8 @@ import TestIntroPage from "./pages/TestPage/TestIntroPage.jsx";
 import TestPage from "./pages/TestPage/TestPage.jsx";
 import TestLoadingPage from "./pages/TestPage/TestLoadingPage.jsx";
 import FeedbackPage from "./pages/FeedbackPage/FeedbackPage.jsx";
+import PhysicExamPage from "./pages/SubPage/PhysicExamPage.jsx";
+import NotePage from "./pages/SubPage/NotePage.jsx";
 import { TestSettingProvider } from "./components/context/TestSettingContext.jsx";
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
         </Route>
         <Route path="/test/loading" element={<TestLoadingPage />} />
         <Route path="/feedback" element={<FeedbackPage />} />
+        <Route path="/physical" element={<PhysicExamPage />} />
+        <Route path="/note" element={<NotePage />} />
       </Routes>
     </Router>
   );

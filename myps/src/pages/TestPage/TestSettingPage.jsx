@@ -22,7 +22,7 @@ const TestSettingPage = () => {
 
   return (
     <div className="flex flex-col pb-[7.125rem]">
-      <NavBar isMain={false} />
+      <NavBar isMain={false} selectedMenu="CASE 연습" />
       <div className="flex flex-col mt-[4.5rem] gap-6 mx-[22.5rem]">
         <IntroHeader title="시험 설정" />
         <TestSetting />
