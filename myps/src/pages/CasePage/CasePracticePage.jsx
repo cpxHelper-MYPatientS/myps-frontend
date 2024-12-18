@@ -4,7 +4,7 @@ import CaseSelection from "../../components/CasePage/CaseSelection";
 const CasePracticePage = () => {
   return (
     <div className="flex flex-col pb-10">
-      <NavBar isMain={false} />
+      <NavBar isMain={false} selectedMenu="CASE 연습" />
       <div className="flex flex-col mx-[22.5rem]">
         <div className="flex items-center mt-16 mb-[3.625rem] gap-2 text-h1 font-bold text-b ">
           <img

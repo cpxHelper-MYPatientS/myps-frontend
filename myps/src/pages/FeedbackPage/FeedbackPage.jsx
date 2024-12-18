@@ -9,7 +9,7 @@ const FeedbackPage = () => {
   };
   return (
     <div className="flex flex-col pb-10">
-      <NavBar isMain={false} />
+      <NavBar isMain={false} selectedMenu="CASE 연습" />
       <div className="flex flex-col gap-10 mx-[22.5rem]">
         <div className="flex items-center justify-between mt-16 gap-2 text-h1 font-bold text-b ">
           나의 문진 돌아보기

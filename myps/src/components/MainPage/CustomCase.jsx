@@ -23,9 +23,8 @@ const CustomCase = () => {
   ];
   const [activeSubject, setActiveSubject] = useState("전체");
   //   const [posts,setPosts] = useState(tempdatas); // 나중에 백엔드 데이터 받으면 여기 저장.
-  const [limit, setlimit] = useState(4);
   const [page, setPage] = useState(1);
-  const offset = (page - 1) * limit;
+  // const offset = (page - 1) * limit;
 
   return (
     <div className="flex flex-col gap-3">
@@ -68,8 +67,12 @@ const CustomCase = () => {
           <PatientInfo />
           <PatientInfo />
         </div>
-        {/* <Pagination total={postMessage.length} limit={limit} page={page} setPage={setPage} /> */}
-        <Pagination />
+        <Pagination
+          total={postMessage.length}
+          limit={4}
+          page={page}
+          setPage={setPage}
+        />
       </div>
     </div>
   );
