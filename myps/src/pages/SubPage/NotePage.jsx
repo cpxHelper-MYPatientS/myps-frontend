@@ -54,7 +54,7 @@ const NotePage = () => {
   };
 
   return (
-    <div className="flex flex-col pb-10">
+    <div className="flex flex-col pb-[9.125rem]">
       <NavBar isMain={false} selectedMenu="정리노트" />
       <div className="w-[75rem] mx-auto">
         <div className="flex flex-col gap-[1.8125rem]">

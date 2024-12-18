@@ -14,6 +14,9 @@ const MainPage = () => {
   const handleCaseClick = () => {
     navigate("/case");
   };
+  const handlePhysicalClick = () => {
+    navigate("/physical");
+  };
   const handleNoteClick = () => {
     navigate("/note");
   };
@@ -56,7 +59,11 @@ const MainPage = () => {
                 iconSrc={caseIcon}
                 onClick={handleCaseClick}
               />
-              <MainMenu title="신체검진" iconSrc={physicIcon} />
+              <MainMenu
+                title="신체검진"
+                iconSrc={physicIcon}
+                onClick={handlePhysicalClick}
+              />
               <MainMenu
                 title="노트 정리"
                 iconSrc={noteIcon}

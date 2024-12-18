@@ -12,6 +12,9 @@ const NavBar = ({ isMain = true, selectedMenu }) => {
   const handleCaseClick = () => {
     navigate("/case");
   };
+  const handlePhysicalClick = () => {
+    navigate("/physical");
+  };
   const handleNoteClick = () => {
     navigate("/note");
   };
@@ -22,13 +25,13 @@ const NavBar = ({ isMain = true, selectedMenu }) => {
   ];
   const Addedcategories = [
     { text: "CASE 연습", onClick: handleCaseClick },
-    { text: "신체검진" },
+    { text: "신체검진", onClick: handlePhysicalClick },
     { text: "정리노트", onClick: handleNoteClick },
   ];
 
   return (
-    <div className="flex justify-between px-[22.5rem] py-4 border-b border-b-violet-10 shadow-custom1 bg-white w-full h-20">
-      <div className="flex justify-between w-[75rem]">
+    <div className="flex justify-between py-4 border-b border-b-violet-10 shadow-custom1 bg-white w-full h-20">
+      <div className="flex justify-between w-[75rem] mx-auto">
         <div className="flex gap-10">
           <img
             src={Logo}
