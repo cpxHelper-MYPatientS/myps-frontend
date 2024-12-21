@@ -24,7 +24,7 @@ const formatTime = (seconds) => {
     .padStart(2, "0")}`;
 };
 
-const TestView = () => {
+const TestView = ({ setHandleExamComplete }) => {
   const navigate = useNavigate();
   const { activeModal, openModal, closeModal } = useModal();
   const { examTime, isCameraOn, setIsCameraOn, isMicOn, setIsMicOn } =
@@ -126,6 +126,10 @@ const TestView = () => {
   const handleExamComplete = () => {
     navigate(`/test/loading`, { state: { caseExamId: currentCaseExamId } });
   };
+
+  useEffect(() => {
+    setHandleExamComplete(() => handleExamComplete);
+  }, [currentCaseExamId]); // currentCaseExamId가 변경될 때마다 업데이트
 
   // 컴포넌트 마운트 시 마이크 상태 확인 및 초기화
   useEffect(() => {

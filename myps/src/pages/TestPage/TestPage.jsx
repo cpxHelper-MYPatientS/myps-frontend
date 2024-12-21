@@ -4,18 +4,14 @@ import NavBar from "../../components/common/NavBar";
 import TestView from "../../components/TestPage/TestView";
 import useModal from "../../hooks/useModal";
 import DefaultModal from "../../components/common/DefaultModal";
+import { useState } from "react";
 
 // TestIntroPage에서 넘어오는것 외에는 주소를 쳐서 들어오지 못하도록 하는 작업 필요
 const TestPage = () => {
   const navigate = useNavigate();
   const { activeModal, openModal, closeModal } = useModal();
+  const [handleExamComplete, setHandleExamComplete] = useState(null);
 
-  //TestView의 handleExamComplete와 통일할 것
-  const handleExamComplete = () => {
-    // 시험 종료 시 필요한 로직
-    console.log("시험 종료");
-    navigate(`/test/loading`);
-  };
   return (
     <div className="flex flex-col pb-[7.125rem]">
       <div className="flex flex-col mt-[72px] gap-2 mx-[22.5rem]">
@@ -28,7 +24,7 @@ const TestPage = () => {
           <img className="w-5 h-5" src={exitIcon} />
           <div>시험 종료</div>
         </div>
-        <TestView />
+        <TestView setHandleExamComplete={setHandleExamComplete} />
       </div>
       {activeModal === "step4" && (
         <DefaultModal
