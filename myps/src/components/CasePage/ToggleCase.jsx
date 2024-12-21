@@ -4,15 +4,15 @@ import NoCase from "../common/NoCase";
 const ToggleCase = ({ isDefault = false }) => {
   const defaultLists = [
     { patientInfo: "[급성복통] 35세 / 박민철님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
-    { patientInfo: "[실신] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
+    { patientInfo: "[예시] 50세 / 조현숙님" },
   ];
   return (
     <div className="flex flex-col justify-start gap-8 text-cgray-950 text-b2 font-medium w-[558px]">
